@@ -45,24 +45,44 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'default_master';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
-$db['default']['database'] = '';
-$db['default']['dbdriver'] = 'mysql';
-$db['default']['dbprefix'] = '';
-$db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
-$db['default']['cache_on'] = FALSE;
-$db['default']['cachedir'] = '';
-$db['default']['char_set'] = 'utf8';
-$db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
-$db['default']['autoinit'] = TRUE;
-$db['default']['stricton'] = FALSE;
+$_master_slave_relation = array(
+	'default_master' => array('default_slave'),
+);
+
+$db['default_master']['hostname'] = '127.0.0.1';
+$db['default_master']['username'] = 'root';
+$db['default_master']['password'] = '123456';
+$db['default_master']['database'] = 'smzdm_product';
+$db['default_master']['dbdriver'] = 'mysql';
+$db['default_master']['dbprefix'] = '';
+$db['default_master']['pconnect'] = FALSE;
+$db['default_master']['db_debug'] = FALSE;
+$db['default_master']['cache_on'] = FALSE;
+$db['default_master']['cachedir'] = '';
+$db['default_master']['char_set'] = 'utf8';
+$db['default_master']['dbcollat'] = 'utf8_general_ci';
+$db['default_master']['swap_pre'] = '';
+$db['default_master']['autoinit'] = FALSE;
+$db['default_master']['stricton'] = FALSE;
+
+$db['default_slave']['hostname'] = '127.0.0.1';
+$db['default_slave']['username'] = 'root';
+$db['default_slave']['password'] = '123456';
+$db['default_slave']['database'] = 'smzdm_product';
+$db['default_slave']['dbdriver'] = 'mysql';
+$db['default_slave']['dbprefix'] = '';
+$db['default_slave']['pconnect'] = FALSE;
+$db['default_slave']['db_debug'] = FALSE;
+$db['default_slave']['cache_on'] = FALSE;
+$db['default_slave']['cachedir'] = '';
+$db['default_slave']['char_set'] = 'utf8';
+$db['default_slave']['dbcollat'] = 'utf8_general_ci';
+$db['default_slave']['swap_pre'] = '';
+$db['default_slave']['autoinit'] = FALSE;
+$db['default_slave']['stricton'] = FALSE;
 
 
 /* End of file database.php */

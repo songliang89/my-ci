@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+include_once '/Users/smzdm/www/my-ci/apps/server/application/third_party/rpc/JsonRpc/Services/Article.php';
+
 class Welcome extends CI_Controller {
 
 	/**
@@ -19,6 +21,12 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('product_article');
+		print_r($this->product_article->getInfo(1));
+		exit;
+		$a = new Article();
+		$ret = $a->getInfo(1);
+		print_r($ret);
 		$this->load->view('welcome_message');
 	}
 }

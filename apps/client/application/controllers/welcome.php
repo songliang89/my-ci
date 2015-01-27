@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+include_once '/Users/smzdm/www/my-ci/apps/client/application/third_party/jsonRpc/client/RpcClient.php';
+
 class Welcome extends CI_Controller {
 
 	/**
@@ -19,7 +21,26 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+
+		$address_array = array(
+			'tcp://127.0.0.1:2015',
+			'tcp://127.0.0.1:2015'
+		);
+// 配置服务端列表
+		RpcClient::config($address_array);
+
+		$uid = 567;
+
+// User对应applications/JsonRpc/Services/User.php 中的User类
+		//$user_client = RpcClient::instance('User');
+		$user_client = RpcClient::instance('Article');
+
+// getInfoByUid对应User类中的getInfoByUid方法
+		//$ret_sync = $user_client->getInfoByUid($uid);
+		$ret_sync = $user_client->getInfo($uid);
+		print_r($ret_sync);
+
+			$this->load->view('welcome_message');
 	}
 }
 
