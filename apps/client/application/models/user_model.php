@@ -28,9 +28,10 @@ class User_model extends MY_Model
 	}
 
 	/**
-	 * 获取用户列表.
+	 * 获取用户列表
 	 *
-	 * @param array $params
+	 * @param int $offset
+	 * @param int $limit
 	 *
 	 * @return array
 	 */
@@ -49,4 +50,6 @@ class User_model extends MY_Model
 		$data = $this->query($sql);
 		return $data;
 	}
+
+
 }
