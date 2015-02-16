@@ -36,10 +36,14 @@ class UserManage extends MY_Controller
 			show_error("you have no privilege to access this page");
 			return ;
 		}
-		
+		$this->load->model('User_model');
+		$user_list = $this->User_model->userSearch();
+		$data = array(
+			'list' => $user_list
+		);
 		$this->load->view('include/header');
 		$this->load->view('include/nav');
-		$this->load->view('user_search');
+		$this->load->view('user_search',$data);
 		$this->load->view('include/footer');
 	}
 	
