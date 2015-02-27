@@ -23,11 +23,11 @@ class Esdemo extends CI_Controller
 	function create_index()
 	{
 		$params = array(
-			'index' => 'my_percolator',
+			'index' => 'percolate',
 			//'type' => 'my_percolator_type',
 			'body' => array(
 				'mappings' => array(
-					'my_percolator_type' => array(
+					'percolate_type' => array(
 						'properties' => array(
 							'pro_id' => array(
 								'type' => 'integer'
@@ -47,15 +47,15 @@ class Esdemo extends CI_Controller
 
 	function insert_data()
 	{
-		$id = 0;
-		while ($id < 100000) {
+		$id = 100000;
+		while ($id < 200000) {
 			$index_options = array(
-				'index' => 'my_percolator',
-				'type'  => 'my_percolator_type',
+				'index' => 'percolate',
+				'type'  => 'percolate_type',
 				'id'    => $id,
 				'body'  => array(
 					'pro_id' => $id,
-					'price' => rand(1000,9999)
+					'price' => rand(0,9999)
 				)
 			);
 			$ret = $this->es->index($index_options);
@@ -65,22 +65,128 @@ class Esdemo extends CI_Controller
 		}
 	}
 
-	function percolate()
+	function percolate_data()
 	{
-		$percolate_params = array(
-			'index' => 'my_percolator',
-			'type' => 'my_percolator_type',
-			'id' => 1,
-			'body' => array(
-				'query' => array(
-					'term' => array(
-						'price' =>140
+		for ($i = 34;$i<=35;$i++){
+
+			/*$index_options = array(
+				'index' => 'percolate',
+				'type'  => '.percolator',
+				'id'    => $i,
+				'body'  => array(
+					'query' => array(
+						'term' => array(
+							'price' => 1
+						)
 					)
 				)
-			)
+			);*/
+			/*$index_options = array(
+				'index' => 'percolate',
+				'type'  => '.percolator',
+				'id'    => $i,
+				'body' => array(
+
+					'query' => array(
+						'range'=> array(
+							'price' => array(
+								'from' => 8988,
+								'to' => 9990
+							),
+						),
+						'term'=>array(
+							'pro_id' => 888
+						),
+					),
+				),
+			);*/
+			$index_options = array(
+				'index' => 'percolate',
+				'type'  => '.percolator',
+				'id'    => $i,
+				'body' => array(
+					'query' => array(
+						'bool' => array(
+						'must' => array(
+							array(
+								'range' => array(
+									'price' => array(
+										'gt' => 9990,
+										'to' => 9999
+									)
+								),
+							),
+							array(
+								'term'=>array(
+									'pro_id' => 2330
+								)
+							),
+						),
+					),
+					)
+				)
+			);
+
+			$ret = $this->es->index($index_options);
+			var_dump($ret);
+		}
+
+	}
+
+	function percolate()
+	{
+		$index_options = array(
+			'index' => 'percolate',
+			'type'  => 'percolate_type',
+			'body' => array(
+				'doc'=>array(
+					'price' => 9991,
+					'pro_id' => 2330
+				),
+			),
 		);
-		$ret = $this->es->percolate($percolate_params);
+		$ret = $this->es->percolate($index_options);
+		echo "<pre>";
 		var_dump($ret);
 	}
 
+
+	function create_percolate()
+	{
+		$user_id = 1;
+		while($user_id <= 1000) {
+			$pro_id = rand(0,100);
+			$pro_id = 2018;
+			$id = $user_id."_".$pro_id;
+			$index_options = array(
+				'index' => 'percolate',
+				'type'  => '.percolator',
+				'id'    => $id,
+				'body' => array(
+					'query' => array(
+						'bool' => array(
+							'must' => array(
+								array(
+									'range' => array(
+										'price' => array(
+											'gt' => 0,
+											'to' => rand(0,99)
+										)
+									),
+								),
+								array(
+									'term'=>array(
+										'pro_id' => $pro_id
+									)
+								),
+							),
+						),
+					)
+				)
+			);
+			$user_id++;
+			$ret = $this->es->index($index_options);
+			var_dump($ret);
+		}
+	}
 }
