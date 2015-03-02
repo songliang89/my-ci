@@ -54,7 +54,7 @@ class MY_Exceptions extends CI_Exceptions {
 			// set message and send
 			$ci->email->message($content);
 			$f = $ci->email->send();
-			var_dump($ci->email);
+			//var_dump($ci->email);
 		}
 
 		// do the rest of the codeigniter stuff

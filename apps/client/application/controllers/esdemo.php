@@ -12,7 +12,7 @@ class Esdemo extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		//$this->load->library('es');
+		$this->load->library('es');
 	}
 
 	function index()
@@ -26,7 +26,7 @@ class Esdemo extends MY_Controller
 	function create_index()
 	{
 		$params = array(
-			'index' => 'percolate2',
+			'index' => 'my-percolator',
 			//'type' => 'my_percolator_type',
 			'body' => array(
 				/*'settings' => array(
@@ -35,7 +35,7 @@ class Esdemo extends MY_Controller
 					'refresh_interval' => 10
 				),*/
 				'mappings' => array(
-					'percolate_type2' => array(
+					'my_percolator_type' => array(
 						'_routing' => array(
 							'required' => true,
 							'path' => 'pro_id'
@@ -56,10 +56,56 @@ class Esdemo extends MY_Controller
 		var_dump($status);
 	}
 
+
+	function create_my()
+	{
+		$params = array(
+			'index' => 'my-index',
+			//'type' => 'my_percolator_type',
+			'body' => array(
+				/*'settings' => array(
+					'number_of_shards' => 10,
+					'number_of_replicas' => 1,
+					'refresh_interval' => 10
+				),*/
+				'mappings' => array(
+					'my-type' => array(
+						'properties' => array(
+							'title' => array(
+								'type' => 'string'
+							),
+							'body' => array(
+								'type' => 'string'
+							),
+						),
+					),
+				),
+			),
+		);
+		$status = $this->es->create_index($params);
+		var_dump($status);
+	}
+
+
+	function insert_my()
+	{
+		$index_options = array(
+			'index' => 'my-index',
+			'type'  => 'my-type',
+			'id'    => 1,
+			'body'  => array(
+				'title' => 'Coffee percolator',
+				'body' => 'A coffee percolator is a type of ...'
+			)
+		);
+		$ret = $this->es->index($index_options);
+		var_dump($ret);
+	}
+
 	function insert_data()
 	{
-		$id = 122554;
-		while ($id < 200000) {
+		$id = 1;
+		while ($id < 100000) {
 			$index_options = array(
 				'index' => 'percolate2',
 				'type'  => 'percolate_type2',
@@ -164,14 +210,14 @@ class Esdemo extends MY_Controller
 
 	function create_percolate()
 	{
-		$user_id = 1;
-		while($user_id <= 1000) {
+		$user_id = 2000;
+		while($user_id <= 10000) {
 			$pro_id = rand(0,199999);
 			$pro_id = 117;
 			$id = $user_id."_".$pro_id;
 			$index_options = array(
-				'index' => 'percolate2',
-				'type'  => '.percolator2',
+				'index' => 'my-percolator',
+				'type'  => '.percolator',
 				'id'    => $id,
 				'body' => array(
 					'query' => array(
