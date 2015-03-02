@@ -13,9 +13,42 @@ class Percolator extends CI_Controller
 		$this->load->library('es');
 	}
 
+	function create_index1()
+	{
+		$params = array(
+			'index' => 'product',
+			//'type' => 'my_percolator_type',
+			'body' => array(
+				/*'settings' => array(
+					'number_of_shards' => 10,
+					'number_of_replicas' => 1,
+					'refresh_interval' => 10
+				),*/
+				'mappings' => array(
+					'price' => array(
+						'_routing' => array(
+							'required' => true,
+							'path' => 'pro_id'
+						),
+						'properties' => array(
+							'pro_id' => array(
+								'type' => 'integer'
+							),
+							'price' => array(
+								'type' => 'long'
+							),
+						),
+					),
+				),
+			),
+		);
+		$status = $this->es->create_index($params);
+		var_dump($status);
+	}
+
 	function create_index()
 	{
-		$id = 30000;
+		$id = 100000;
 		$name = array(
 			"松下",
 			"小米",
@@ -32,15 +65,14 @@ class Percolator extends CI_Controller
 			"亚马逊",
 			"易迅"
 		);
-		while ($id < 99999) {
+		while ($id < 200000) {
 			$index_options = array(
 				'index' => 'product',
 				'type'  => 'price',
 				'id'    => $id,
 				'body'  => array(
 					'pro_id' => $id,
-					'price' => rand(0,999),
-					'name' => "my".$name[rand(0,13)]."tv"
+					'price' => rand(0,9999),
 				)
 			);
 			$ret = $this->es->index($index_options);
@@ -52,10 +84,10 @@ class Percolator extends CI_Controller
 
 	function create_price_alert()
 	{
-		$user_id = 1;
-		while($user_id <= 1000) {
-			$pro_id = rand(0,2000);
-			$pro_id = 2181;
+		$user_id = 200000;
+		while($user_id <= 400000) {
+			$pro_id = rand(0,9999);
+			//$pro_id = 1589;
 			$index_name = "alert_".$this->get_alert_id($pro_id);
 			$id = $user_id."_".$pro_id;
 			$index_options = array(
@@ -68,15 +100,15 @@ class Percolator extends CI_Controller
 							'must' => array(
 								array(
 									'range' => array(
-										'product.price' => array(
-											'gt' => 0,
-											'to' => rand(0,485)
+										'price' => array(
+											'gt' => 1,
+											'to' => 9999
 										)
 									),
 								),
 								array(
 									'term'=>array(
-										'product.pro_id' => $pro_id
+										'pro_id' => $pro_id
 									)
 								),
 							),
