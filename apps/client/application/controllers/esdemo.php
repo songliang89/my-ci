@@ -6,28 +6,40 @@
  * Time: 上午11:34
  */
 
-class Esdemo extends CI_Controller
+class Esdemo extends MY_Controller
 {
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->library('es');
+		//$this->load->library('es');
 	}
 
 	function index()
 	{
-		var_dump($this->es->ping());
+		echo "xxx";
+
 	}
+
+
 
 	function create_index()
 	{
 		$params = array(
-			'index' => 'percolate',
+			'index' => 'percolate2',
 			//'type' => 'my_percolator_type',
 			'body' => array(
+				/*'settings' => array(
+					'number_of_shards' => 10,
+					'number_of_replicas' => 1,
+					'refresh_interval' => 10
+				),*/
 				'mappings' => array(
-					'percolate_type' => array(
+					'percolate_type2' => array(
+						'_routing' => array(
+							'required' => true,
+							'path' => 'pro_id'
+						),
 						'properties' => array(
 							'pro_id' => array(
 								'type' => 'integer'
@@ -40,22 +52,21 @@ class Esdemo extends CI_Controller
 				),
 			),
 		);
-
 		$status = $this->es->create_index($params);
 		var_dump($status);
 	}
 
 	function insert_data()
 	{
-		$id = 100000;
+		$id = 122554;
 		while ($id < 200000) {
 			$index_options = array(
-				'index' => 'percolate',
-				'type'  => 'percolate_type',
+				'index' => 'percolate2',
+				'type'  => 'percolate_type2',
 				'id'    => $id,
 				'body'  => array(
 					'pro_id' => $id,
-					'price' => rand(0,9999)
+					'price' => rand(0,999)
 				)
 			);
 			$ret = $this->es->index($index_options);
@@ -101,8 +112,8 @@ class Esdemo extends CI_Controller
 				),
 			);*/
 			$index_options = array(
-				'index' => 'percolate',
-				'type'  => '.percolator',
+				'index' => 'percolate2',
+				'type'  => '.percolator2',
 				'id'    => $i,
 				'body' => array(
 					'query' => array(
@@ -155,12 +166,12 @@ class Esdemo extends CI_Controller
 	{
 		$user_id = 1;
 		while($user_id <= 1000) {
-			$pro_id = rand(0,100);
-			$pro_id = 2018;
+			$pro_id = rand(0,199999);
+			$pro_id = 117;
 			$id = $user_id."_".$pro_id;
 			$index_options = array(
-				'index' => 'percolate',
-				'type'  => '.percolator',
+				'index' => 'percolate2',
+				'type'  => '.percolator2',
 				'id'    => $id,
 				'body' => array(
 					'query' => array(
@@ -170,7 +181,7 @@ class Esdemo extends CI_Controller
 									'range' => array(
 										'price' => array(
 											'gt' => 0,
-											'to' => rand(0,99)
+											'to' => rand(0,485)
 										)
 									),
 								),

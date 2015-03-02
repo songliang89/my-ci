@@ -1,22 +1,11 @@
 <?php
 
-/*
- * What protocol to use?
- * mail, sendmail, smtp
- */
-$config['protocol'] = 'mail';
-
-/*
- * SMTP server address and port
- */
-$config['smtp_host'] = '';
-$config['smtp_port'] = '';
-
-/*
- * SMTP username and password.
- */
-$config['smtp_user'] = '';
-$config['smtp_pass'] = '';
+$config['useragent'] = 'smzdm';
+$config['protocol'] = 'smtp';
+$config['smtp_host'] = 'mail.smzdm.com';
+$config['smtp_user'] = 'reply@smzdm.com';
+$config['smtp_pass'] = 'yEELQnY5';
+$config['mailtype'] = 'html';
 
 /*
  * Heroku Sendgrid information.
