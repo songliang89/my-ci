@@ -1,10 +1,10 @@
 <?php
 
-$config['useragent'] = 'smzdm';
+$config['useragent'] = '';
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'mail.smzdm.com';
-$config['smtp_user'] = 'reply@smzdm.com';
-$config['smtp_pass'] = 'yEELQnY5';
+$config['smtp_host'] = '';
+$config['smtp_user'] = '';
+$config['smtp_pass'] = '';
 $config['mailtype'] = 'html';
 
 /*
