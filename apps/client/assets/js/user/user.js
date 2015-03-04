@@ -17,7 +17,10 @@ $(function(){
             $(this).parent().parent().removeClass("info");
             $(this).siblings(".help-inline").hide().html("");
         } else {
-            
+            if ($(this).val().length < 4 || $(this).val().length > 14) {
+                $(this).parent().parent().removeClass("info").addClass("error");
+                $(this).siblings(".help-inline").show().html("4-14字符,无特殊字符");
+            }
         }
     })
 
@@ -28,8 +31,18 @@ $(function(){
     })
 
     $("#email").blur(function(){
-        $(this).parent().parent().removeClass("info");
-        $(this).siblings(".help-inline").hide().html("");
+        if ($(this).val() == "") {
+            $(this).parent().parent().removeClass("info");
+            $(this).siblings(".help-inline").hide().html("");
+        } else {
+            if (!checkEmail($(this).val())) {
+                $(this).parent().parent().removeClass("info").addClass("error");
+                $(this).siblings(".help-inline").show().html("请输入正确的邮箱地址");
+            } else {
+                $(this).parent().parent().removeClass("info").addClass("success");
+                $(this).siblings(".help-inline").show().html("");
+            }
+        }
     })
 
     // 密码

@@ -27,7 +27,7 @@
 			<div class="control-group">
 				<label for="email" class="control-label">邮箱</label>
 				<div class="controls">
-					<input type="email" class="form-control" id="email" placeholder="邮箱">
+					<input type="text" class="form-control" id="email" placeholder="邮箱">
 					<span class="help-inline" id="email_msg" style="display: none;"></span>
 				</div>
 			</div>
