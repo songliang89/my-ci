@@ -15,7 +15,6 @@ class User extends MY_Controller
 
 	public function register()
 	{
-		echo getRandomStr();
 		$this->load->view('user/register');
 	}
 

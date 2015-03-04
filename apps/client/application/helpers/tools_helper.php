@@ -17,7 +17,7 @@ function getRandomStr($length = 6)
 {
 	$randomStr = "";
 	$ordinaryStr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789";
-	$specialStr = '{[!@#$%^&*()]}';
+	$specialStr = '{[!@#$%^&*()]}_=';
 	$ordinaryOrspecial = array('ordinaryStr','specialStr');
 	for ($i=1;$i<=$length;$i++) {
 		if ('ordinaryStr' == $ordinaryOrspecial[rand(0,1)]) {
@@ -27,4 +27,17 @@ function getRandomStr($length = 6)
 		}
 	}
 	return $randomStr;
+}
+
+/**
+ *  生成用户密码
+ *
+ * @param $password
+ * @param $randomStr
+ *
+ * @return string
+ */
+function getUserPassword($password,$randomStr)
+{
+	return md5(md5($password).$randomStr);
 }

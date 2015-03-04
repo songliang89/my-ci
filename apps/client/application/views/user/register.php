@@ -52,12 +52,13 @@
 			</div>-->
 			<div class="control-group">
 				<div class="controls">
-					<button type="submit" class="btn btn-primary">注册</button>
+					<button type="submit" class="btn btn-primary" id="register_submit">注册</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
+<script src="<?php echo base_url('assets/js/jquery.md5.js');?>"></script>
 <script src="<?php echo base_url('assets/js/user/user.js');?>"></script>
 <?php
 	$this->load->view('include/footer');

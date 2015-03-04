@@ -28,7 +28,7 @@
 /**
  * Class Web_user
  */
-class Web_user extends MY_Model
+class Web_user_model extends MY_Model
 {
 
 	function __construct()

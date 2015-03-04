@@ -50,6 +50,24 @@ $(function(){
         $(this).siblings(".help-inline").hide().html("");
     })
 
+    // 提交
+    $("#register_submit").click(function(){
+        var post_data = {
+            user_name:$("#user_name").val(),
+            email:$("#email").val(),
+            password: $.md5($("#password").val()),
+            r:Math.random()
+        };
+        $.ajax({
+            type:"post",
+            url :'/register_ajax_submit',
+            dataType:'json',
+            data:post_data,
+            success:function(data) {
+
+            }
+        })
+    })
 })
 
 
