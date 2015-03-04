@@ -13,8 +13,12 @@ $(function(){
     })
 
     $("#user_name").blur(function(){
-        $(this).parent().parent().removeClass("info");
-        $(this).siblings(".help-inline").hide().html("");
+        if ($(this).val() == "") {
+            $(this).parent().parent().removeClass("info");
+            $(this).siblings(".help-inline").hide().html("");
+        } else {
+            
+        }
     })
 
     // email
