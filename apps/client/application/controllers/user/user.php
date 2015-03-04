@@ -10,10 +10,12 @@ class User extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('tools');
 	}
 
 	public function register()
 	{
+		echo getRandomStr();
 		$this->load->view('user/register');
 	}
 

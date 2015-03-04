@@ -15,6 +15,6 @@ class Web_user extends MY_Controller
 	public function register()
 	{
 		$postData = $this->input->post();
-		
+
 	}
 }
