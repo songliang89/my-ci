@@ -63,8 +63,39 @@ class Zdm_product extends CI_Controller
 	 */
 	function create_product_index()
 	{
-		$ret = $this->es->create_index($this->product_index);
-		print_r($ret);
+		for ($i=1;$i<=60;$i++) {
+			$idx_name = "product_".$i;
+			$idx_params = array(
+				'index' => $idx_name,
+				'body' => array(
+					'settings' => array(
+						'number_of_shards' => 3,
+						'number_of_replicas' => 1,
+						'refresh_interval' => 10
+					),
+					'mappings' => array(
+						'price' => array(
+							'_routing' => array(
+								'required' => true,
+								'path' => 'pro_id'
+							),
+							'properties' => array(
+								'pro_id' => array(
+									'type' => 'integer'
+								),
+								'price' => array(
+									'type' => 'double'
+								),
+							),
+						),
+					),
+				),
+			);
+			$ret = $this->es->create_index($idx_params);
+			print_r($ret);
+		}
+
+
 	}
 
 	/**
@@ -75,7 +106,7 @@ class Zdm_product extends CI_Controller
 		ini_set('max_execution_time', '0');
 		$id = 1;
 		while($id < 600000) {
-			$idx = ceil($id/50000);
+			$idx = ceil($id/10000);
 			$index_name = "product_".$idx;
 			$index_params = array(
 				'index' => $index_name,
@@ -110,7 +141,7 @@ class Zdm_product extends CI_Controller
 		$user_id = 1;
 		while ($user_id < 200000) {
 			$pro_id = rand(1,599999);
-			$idx = ceil($pro_id/50000);
+			$idx = ceil($pro_id/10000);
 			$index_name = "product_".$idx;
 			$uid = $user_id."_".$pro_id;
 			$index_params = array(
