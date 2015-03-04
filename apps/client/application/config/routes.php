@@ -41,6 +41,21 @@
 $route['default_controller'] = "account";
 $route['404_override'] = '';
 
+/**
+ * 用户注册
+ */
+$route['register'] = 'user/user/register';
+
+/**
+ * 用户登录
+ */
+$route['login'] = 'user/user/login';
+
+/**
+ *  用户注册ajax 提交
+ */
+$route['register_ajax_submit'] = 'ajax/web_user/register';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
