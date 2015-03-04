@@ -48,12 +48,22 @@ $(function(){
     // 密码
     $("#password").focus(function(){
         $(this).parent().parent().addClass("info");
-        $(this).siblings(".help-inline").show().html("输入密码");
+        $(this).siblings(".help-inline").show().html("输入密码,至少六位");
     })
 
     $("#password").blur(function(){
-        $(this).parent().parent().removeClass("info");
-        $(this).siblings(".help-inline").hide().html("");
+        if ("" == $(this).val()) {
+            $(this).parent().parent().removeClass("info");
+            $(this).siblings(".help-inline").hide().html("");
+        } else {
+            if ($(this).val().length < 6) {
+                $(this).parent().parent().removeClass().addClass("control-group error");
+                $(this).siblings(".help-inline").show().html("输入密码,至少六位");
+            } else {
+                $(this).parent().parent().removeClass().addClass("control-group success");
+                $(this).siblings(".help-inline").hide().html("");
+            }
+        }
     })
 
     // 确认密码
