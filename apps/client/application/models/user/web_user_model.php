@@ -61,4 +61,16 @@ class Web_user_model extends MY_Model
 		}
 		return $this->save($data);
 	}
+
+    public function isExistUser($userName)
+    {
+	    if ("" == $userName) {
+		    return false;
+	    }
+		$whereArray = array(
+			'user_name' => $userName,
+		);
+	    $userInfo = $this->findByAttributes($whereArray);
+	    print_r($userInfo);
+    }
 }
