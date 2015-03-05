@@ -1,65 +1,68 @@
 <?php
-	$this->load->view('include/header');
+	$this->load->view('web_public/header');
+	$this->load->view('web_public/nav');
 ?>
+<div class="am-container">
+	<div class="am-g">
+		<div class="am-cf am-padding">
+			<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户注册</strong> / <small></small></div>
+		</div>
+		<div class="am-tab-panel">
+			<form class="am-form">
+				<div class="am-g am-margin-top">
+					<div class="am-u-sm-4 am-u-md-2 am-text-right">
+						文章标题
+					</div>
+					<div class="am-u-sm-8 am-u-md-4">
+						<input type="text" class="am-input-sm">
+					</div>
+					<div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
+				</div>
 
-<div class="navbar navbar-inverse">
-	<div class="navbar-inner">
-		<a class="brand" href="#">Title</a>
-		<ul class="nav">
-			<li class="active"><a href="#">首页</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-		</ul>
+				<div class="am-g am-margin-top">
+					<div class="am-u-sm-4 am-u-md-2 am-text-right">
+						文章作者
+					</div>
+					<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+						<input type="text" class="am-input-sm">
+					</div>
+				</div>
+
+				<div class="am-g am-margin-top">
+					<div class="am-u-sm-4 am-u-md-2 am-text-right">
+						信息来源
+					</div>
+					<div class="am-u-sm-8 am-u-md-4">
+						<input type="text" class="am-input-sm">
+					</div>
+					<div class="am-hide-sm-only am-u-md-6">选填</div>
+				</div>
+
+				<div class="am-g am-margin-top">
+					<div class="am-u-sm-4 am-u-md-2 am-text-right">
+						内容摘要
+					</div>
+					<div class="am-u-sm-8 am-u-md-4">
+						<input type="text" class="am-input-sm">
+					</div>
+					<div class="am-u-sm-12 am-u-md-6">不填写则自动截取内容前255字符</div>
+				</div>
+
+				<div class="am-g am-margin-top-sm">
+					<div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
+						内容描述
+					</div>
+					<div class="am-u-sm-12 am-u-md-10">
+						<textarea rows="10" placeholder="请使用富文本编辑插件"></textarea>
+					</div>
+				</div>
+
+			</form>
+		</div>
 	</div>
 </div>
-
-<div class="container">
-	<div class="row">
-		<h3 class="page-header">用户注册</h3>
-		<form class="form-horizontal well" onsubmit="return false;">
-			<div class="control-group">
-				<label for="user_name" class="control-label">用户名</label>
-				<div class="controls">
-					<input type="text" class="form-control" id="user_name" placeholder="用户名">
-					<span class="help-inline" id="user_name_msg" style="display: none;"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="email" class="control-label">邮箱</label>
-				<div class="controls">
-					<input type="text" class="form-control" id="email" placeholder="邮箱">
-					<span class="help-inline" id="email_msg" style="display: none;"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="password" class="control-label">密码</label>
-				<div class="controls">
-					<input type="password" class="form-control" id="password" placeholder="密码">
-					<span class="help-inline" id="password_msg" style="display: none;"></span>
-				</div>
-			</div>
-			<div class="control-group">
-				<label for="again_password" class="control-label">确认密码</label>
-				<div class="controls">
-					<input type="password" class="form-control" id="again_password" placeholder="确认密码">
-					<span class="help-inline" id="again_password_msg" style="display: none;"></span>
-				</div>
-			</div>
-			<!--<div class="checkbox">
-				<label>
-					<input type="checkbox"> Check me out
-				</label>
-			</div>-->
-			<div class="control-group">
-				<div class="controls">
-					<button type="submit" class="btn btn-primary" id="register_submit">注册</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<script src="<?php echo base_url('assets/js/jquery.md5.js');?>"></script>
-<script src="<?php echo base_url('assets/js/user/user.js');?>"></script>
+<!-- content end -->
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 <?php
-	$this->load->view('include/footer');
+	$this->load->view('web_public/footer');
 ?>

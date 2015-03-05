@@ -14,12 +14,18 @@ $(function(){
 
     $("#user_name").blur(function(){
         if ($(this).val() == "") {
-            $(this).parent().parent().removeClass("info");
+            $(this).parent().parent().removeClass().addClass("control-group");
             $(this).siblings(".help-inline").hide().html("");
         } else {
             if ($(this).val().length < 4 || $(this).val().length > 14) {
-                $(this).parent().parent().removeClass("info").addClass("error");
+                $(this).parent().parent().removeClass().addClass("control-group error");
                 $(this).siblings(".help-inline").show().html("4-14字符,无特殊字符");
+            } else {
+
+                //todo 判断用户名是否被占用
+
+                $(this).parent().parent().removeClass().addClass("control-group success");
+                $(this).siblings(".help-inline").hide().html("");
             }
         }
     })
@@ -89,6 +95,15 @@ $(function(){
 
     // 提交
     $("#register_submit").click(function(){
+        // 用户名判断
+        if ($("#user_name").val() == "") {
+            $("#user_name").parent().parent().removeClass().addClass("control-group error");
+            $("#user_name").siblings(".help-inline").show().html("用户名不能为空");
+            return false;
+        }
+
+
+
         var post_data = {
             user_name:$("#user_name").val(),
             email:$("#email").val(),
