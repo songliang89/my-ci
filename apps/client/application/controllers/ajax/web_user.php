@@ -140,4 +140,31 @@ class Web_user extends MY_Controller
 			exit;
 		}
 	}
+
+	function login()
+	{
+		// 用户名
+		$userName = trim($this->input->post('user_name'));
+		if ("" == $userName) {
+			$jsonData = array(
+				'code' => -2,
+				'msg'  => '用户名不能为空'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
+		// 密码
+		$password = trim($this->input->post('password'));
+		if ("" == $password) {
+			$jsonData = array(
+				'code' => -3,
+				'msg' => '密码不能为空'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
+		$loginInfo = $this->web_user_model->userLogin($userName,$password);
+		echo json_encode($loginInfo);
+		exit;
+	}
 }

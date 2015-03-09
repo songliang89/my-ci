@@ -150,9 +150,72 @@ $(function(){
 })
 
 /**
+ *  用户注册 end
+ **/
+
+/**
+ *  登录 start
+ */
+$(function(){
+    $("#login_user_name").focus(function(){
+        $("#login_user_name_tips").show().html("请输入用户").css("color","");
+    }).blur(function(){
+        if ($(this).val() == "") {
+            $("#login_user_name_tips").show().html("请输入用户").css("color","red");
+        } else {
+            $("#login_user_name_tips").hide().html("").css("color","");
+        }
+    })
+    $("#login_password").focus(function(){
+        $("#login_password_tips").show().html("请输入密码").css("color","");
+    }).blur(function(){
+        if ($(this).val() == "") {
+            $("#login_password_tips").show().html("请输入用户").css("color","red");
+        } else {
+            $("#login_password_tips").hide().html("").css("color","");
+        }
+    })
+
+    $("#login_submit").on("click",function(){
+        var user_name = $("#login_user_name").val();
+        var password = $("#login_password").val();
+        if (user_name == "") {
+            $("#login_user_name_tips").show().html("用户名不能为空").css("color","red");
+            return false;
+        }
+        if (password == "") {
+            $("#login_password_tips").show().html("密码不能为空").css("color","red");
+            return false;
+        }
+        var postData = {
+            user_name:user_name,
+            password: $.md5(password),
+            r:Math.random()
+        };
+        $.ajax({
+            type:"POST",
+            url:'/login_ajax_submit',
+            data:postData,
+            dataType:"json",
+            success:function(data){
+                if (data.code == 1) {
+                    alert(data.msg);
+                    location.href="/";
+                } else {
+                    $("#login_tips").show().html("用户名或密码错误").css("color","red");
+                }
+            }
+        })
+    })
+})
+/**
+ *  登录 end
+ */
+
+/**
  * ajax 判断用户名是否存在.
  *
- * @param userNameapps/client/assets/js/user/user.js:51
+ * @param userName
  * @returns {boolean}
  */
 function isExistUser(userName)
@@ -202,6 +265,3 @@ function isExistEmail(email)
     })
     return flag;
 }
-/**
- *  用户注册 end
- **/

@@ -57,6 +57,12 @@ $route['login'] = 'user/user/login';
 $route['register_ajax_submit'] = 'ajax/web_user/register';
 
 /**
+ *  用户登录ajax 提交
+ */
+$route['login_ajax_submit'] = 'ajax/web_user/login';
+
+
+/**
  *  判断用户名是否存在
  */
 $route['register_is_exist_username'] = 'ajax/web_user/is_exist_user';

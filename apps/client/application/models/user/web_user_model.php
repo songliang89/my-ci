@@ -99,4 +99,62 @@ class Web_user_model extends MY_Model
 		$userInfo = $this->findByAttributes($whereArray);
 		return empty($userInfo) ? false : true;
 	}
+
+	/**
+	 * 用户登录.
+	 *
+	 * @param $user_name
+	 * @param $password
+	 *
+	 * @return array
+	 */
+	public function userLogin($user_name,$password)
+	{
+		$loginInfo = array(
+			'code' => 0,
+			'msg' => ""
+		);
+		if ($user_name == "" || $password == "") {
+			$loginInfo["msg"] = "用户名或密码不能为空";
+			return $loginInfo;
+		}
+		$userInfo = $this->getInfoByName($user_name);
+		if (empty($userInfo)) {
+			$loginInfo["msg"] = "不存在该用户";
+			return $loginInfo;
+		}
+		$userPassword = isset($userInfo['password']) ? $userInfo['password'] : "";
+		$salt = isset($userInfo['salt']) ? $userInfo['salt'] : "";
+		if (getUserPassword($password,$salt) == $userPassword) {
+			$loginInfo['code'] = 1;
+			$loginInfo['msg'] = "登录成功";
+
+			//todo 记录 cookie
+
+		} else {
+			$loginInfo['status'] = false;
+			$loginInfo['msg'] = "用户名或密码不正确";
+		}
+		return $loginInfo;
+	}
+
+	/**
+	 * 通过用户获取用户信息.
+	 *
+	 * @param $username
+	 *
+	 * @return array
+	 */
+	public function getInfoByName($username)
+	{
+		$info = array();
+		if ("" == $username) {
+			return $info;
+		}
+		$whereArray = array(
+			'user_name' => $username
+		);
+		$info = $this->findByAttributes($whereArray);
+		return $info;
+	}
 }

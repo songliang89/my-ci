@@ -14,23 +14,27 @@ $this->load->view('web_public/nav');
 							用户名
 						</div>
 						<div class="am-u-sm-8 am-u-md-4 ">
-							<input type="text" class="am-input-sm" name="user_name" id="user_name">
+							<input type="text" class="am-input-sm" name="login_user_name" id="login_user_name">
 						</div>
-						<div class="am-u-sm-12 am-u-md-6" style="display: none;" id="user_name_tips"></div>
+						<div class="am-u-sm-12 am-u-md-6" style="display: none;" id="login_user_name_tips"></div>
 					</div>
-
 					<div class="am-g am-margin-top">
 						<div class="am-u-sm-4 am-u-md-2 am-text-right">
 							密码
 						</div>
 						<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-							<input type="text" class="am-input-sm" name="email" id="email">
+							<input type="password" class="am-input-sm" name="login_password" id="login_password">
 						</div>
-						<div class="am-u-sm-12 am-u-md-6" style="display: none;" id="email_tips"></div>
+						<div class="am-u-sm-12 am-u-md-6" style="display: none;" id="login_password_tips"></div>
+					</div>
+					<div class="am-g am-margin-top am-margin-bottom">
+						<div class="am-u-sm-2 am-u-sm-offset-2" id="login_tips" style="display: none;">
+							用户名或密码错误
+						</div>
 					</div>
 					<div class="am-g am-margin-top am-margin-bottom">
 						<div class="am-u-sm-2 am-u-sm-offset-2">
-							<button type="button" class="am-btn am-btn-primary am-btn-block" id="submit_register">登录</button>
+							<button type="button" class="am-btn am-btn-primary am-btn-block" id="login_submit">登录</button>
 						</div>
 					</div>
 				</form>
