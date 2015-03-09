@@ -27,6 +27,18 @@ $this->load->view('web_public/nav');
 						</div>
 						<div class="am-u-sm-12 am-u-md-6" style="display: none;" id="login_password_tips"></div>
 					</div>
+					<div class="am-g am-margin-top">
+						<div class="am-u-sm-4 am-u-md-2 am-text-right">
+							验证码
+						</div>
+						<div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+							<input type="password" class="am-input-sm" name="" id="">
+						</div>
+						<div class="am-u-sm-12 am-u-md-6"  id="">
+							<img onclick="change_auth_code()" src="<?php echo base_url('authcode');?>" alt="点击更换验证码" id="authcode">
+							看不清,<a href="javascript:;;" title="点击更换验证码" onclick="change_auth_code()"> 换一换</a>
+						</div>
+					</div>
 					<div class="am-g am-margin-top am-margin-bottom">
 						<div class="am-u-sm-2 am-u-sm-offset-2" id="login_tips" style="display: none;">
 							用户名或密码错误

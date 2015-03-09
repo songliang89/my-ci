@@ -86,7 +86,7 @@ class Authcode
 		header("Content-type: image/jpeg");
 		imagejpeg($this->image);
 		imagedestroy($this->image);
-		echo $this->image;
+		return $this->image;
 	}
 
 

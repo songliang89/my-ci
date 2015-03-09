@@ -265,3 +265,12 @@ function isExistEmail(email)
     })
     return flag;
 }
+/**
+ *  切换验证码.
+ */
+function change_auth_code()
+{
+    var auth_img = "/authcode?";
+    $("#authcode").attr("src",auth_img+"r="+Math.random())
+}
+

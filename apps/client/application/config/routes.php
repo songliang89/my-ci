@@ -73,5 +73,10 @@ $route['register_is_exist_username'] = 'ajax/web_user/is_exist_user';
 $route['register_is_exist_email'] = 'ajax/web_user/is_exist_email';
 
 
+/**
+ *  验证码
+ */
+$route['authcode'] = 'public/common/auth_code';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
