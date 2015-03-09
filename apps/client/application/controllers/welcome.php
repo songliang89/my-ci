@@ -3,6 +3,10 @@
 
 class Welcome extends CI_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+	}
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,7 +24,9 @@ class Welcome extends CI_Controller {
 	 */
 	function index()
 	{
-		echo "this is index page";
+		$this->load->library('authcode');
+		$this->load->library('session');
+		echo $this->authcode->show();
 	}
 }
 
