@@ -64,7 +64,19 @@ $(function(){
     })
 
     // 确认密码
-    
+    $("#password2").focus(function(){
+        $("#password2_tips").show().html("再次输入密码").css("color","");
+    }).blur(function(){
+        if ($(this).val() == "") {
+            $("#password2_tips").show().html("再次输入密码").css("color","red");
+        } else {
+            if ($(this).val() != $("#password").val()) {
+                $("#password2_tips").show().html("两次输入密码不一致").css("color","red");
+            } else {
+                $("#password2_tips").hide().html("").css("color","");
+            }
+        }
+    })
 })
 
 /**
