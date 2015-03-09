@@ -129,7 +129,21 @@ $(function(){
             data:postData,
             dataType:"JSON",
             success:function(data){
-                
+                if (data.code == "-1") {
+                    alert(data.msg);
+                } else if(data.code == "-2") {
+                    $("#user_name_tips").show().html("用户名不能为空").css("color","red");
+                } else if (data.code == "-3") {
+                    $("#email_tips").show().html("邮箱不能为空").css("color","red");
+                } else if(data.code == "-4") {
+                    $("#password_tips").show().html("密码不能为空").css("color","red");
+                } else if(data.code == "0") {
+                    alert(data.msg);
+                } else {
+                    alert(data.msg);
+                    location.href = "/";
+                }
+
             }
         })
     })

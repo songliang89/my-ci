@@ -58,6 +58,7 @@
 </div>
 <!-- content end -->
 <a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+<script src="<?php echo base_url('assets/js/jquery.md5.js');?>"></script>
 <script src="<?php echo base_url('assets/js/public.js');?>"></script>
 <script src="<?php echo base_url('assets/js/user/user.js');?>"></script>
 <?php
