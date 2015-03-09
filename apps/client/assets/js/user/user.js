@@ -77,6 +77,62 @@ $(function(){
             }
         }
     })
+
+    // 提交表单
+    $("#submit_register").click(function(){
+        var username = $("#user_name").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var password2 = $("#passowrd2").val();
+        if (username == "") {
+            $("#user_name_tips").show().html("用户名不能为空").css("color","red");
+            return false;
+        }
+        if (isExistUser(username)) {
+            $("#user_name_tips").show().html("该用户名也存在，不能重复注册").css("color","red");
+            return false;
+        }
+        if (email == "") {
+            $("#email_tips").show().html("邮箱不能为空").css("color","red");
+            return false;
+        }
+        if (!checkEmail(email)) {
+            $("#email_tips").show().html("请输入正确的邮箱地址").css("color","red");
+            return false;
+        }
+        if (isExistEmail(email)) {
+            $("#email_tips").show().html("该email也存在，不能重复注册").css("color","red");
+            return false;
+        }
+        if (password == "") {
+            $("#password_tips").show().html("密码不能为空").css("color","red");
+            return false;
+        }
+        if (password.length < 6) {
+            $("#password_tips").show().html("密码至少六位").css("color","red");
+            return false;
+        }
+        if (password != password) {
+            $("#password2_tips").show().html("两次输入密码不一致").css("color","red");
+            return false;
+        }
+        var postData = {
+            user_name:username,
+            email:email,
+            password: $.md5(password),
+            r:Math.random()
+        };
+        // ajax
+        $.ajax({
+            type:"post",
+            url:"/register_ajax_submit",
+            data:postData,
+            dataType:"JSON",
+            success:function(data){
+                
+            }
+        })
+    })
 })
 
 /**
