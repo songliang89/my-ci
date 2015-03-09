@@ -20,6 +20,6 @@ class User extends MY_Controller
 
 	public function login()
 	{
-		echo "this is 登录";
+		$this->load->view('user/login');
 	}
 }
