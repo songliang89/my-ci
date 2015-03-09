@@ -62,7 +62,14 @@ class Web_user_model extends MY_Model
 		return $this->save($data);
 	}
 
-    public function isExistUser($userName)
+	/**
+	 * 判断这个用户是否存在.
+	 *
+	 * @param $userName
+	 *
+	 * @return bool
+	 */
+	public function isExistUser($userName)
     {
 	    if ("" == $userName) {
 		    return false;
@@ -71,6 +78,25 @@ class Web_user_model extends MY_Model
 			'user_name' => $userName,
 		);
 	    $userInfo = $this->findByAttributes($whereArray);
-	    print_r($userInfo);
+	    return empty($userInfo) ? false : true;
     }
+
+	/**
+	 * 判断邮箱是否被占用.
+	 *
+	 * @param $email
+	 *
+	 * @return bool
+	 */
+	public function isExistEmail($email)
+	{
+		if ("" == $email) {
+			return false;
+		}
+		$whereArray = array(
+			'email' => $email
+		);
+		$userInfo = $this->findByAttributes($whereArray);
+		return empty($userInfo) ? false : true;
+	}
 }

@@ -12,6 +12,14 @@ class Web_user extends MY_Controller
 		parent::__construct();
 		$this->load->helper('tools');
 		$this->load->model('user/web_user_model');
+		if (!$this->input->is_ajax_request()) {
+			$jsonData = array(
+				'code' => -1,
+				'msg'  => "非法请求"
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
 	}
 
 	public function register()
@@ -34,7 +42,8 @@ class Web_user extends MY_Controller
 			echo json_encode($jsonData);
 			exit;
 		}
-
+		//todo 验证用户名是否存在
+		//todo 验证邮箱是否存在
 		// 邮箱
 		$email = $this->input->post('email');
 		if ("" == $email) {
@@ -79,6 +88,55 @@ class Web_user extends MY_Controller
 				'msg' => '注册失败'
 			);
 			echo json_encode($jsonData);
+			exit;
+		}
+	}
+
+	/**
+	 * 判断用户名是否存在.
+	 */
+	function is_exist_user()
+	{
+		$userName = trim($this->input->post("user_name"));
+		$isExist = $this->web_user_model->isExistUser($userName);
+		if ($isExist) {
+			$json_data = array(
+				'code' => 1,
+				'msg' => '用户名已经被占用'
+			);
+			echo json_encode($json_data);
+			exit;
+		} else {
+			$json_data = array(
+				'code' => 0,
+				'msg' => ''
+			);
+			echo json_encode($json_data);
+			exit;
+		}
+	}
+
+	/**
+	 * 判断邮箱是否被占用
+	 *
+	 */
+	function is_exist_email()
+	{
+		$email = trim($this->input->post("email"));
+		$isExist = $this->web_user_model->isExistEmail($email);
+		if ($isExist) {
+			$json_data = array(
+				'code' => 1,
+				'msg' => '邮箱已经被占用'
+			);
+			echo json_encode($json_data);
+			exit;
+		} else {
+			$json_data = array(
+				'code' => 0,
+				'msg' => ''
+			);
+			echo json_encode($json_data);
 			exit;
 		}
 	}

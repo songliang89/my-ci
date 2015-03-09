@@ -56,6 +56,16 @@ $route['login'] = 'user/user/login';
  */
 $route['register_ajax_submit'] = 'ajax/web_user/register';
 
+/**
+ *  判断用户名是否存在
+ */
+$route['register_is_exist_username'] = 'ajax/web_user/is_exist_user';
+
+/**
+ * 判断注册邮箱是否存在
+ */
+$route['register_is_exist_email'] = 'ajax/web_user/is_exist_email';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
