@@ -167,4 +167,5 @@ class Web_user extends MY_Controller
 		echo json_encode($loginInfo);
 		exit;
 	}
+
 }

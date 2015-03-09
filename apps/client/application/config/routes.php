@@ -78,5 +78,9 @@ $route['register_is_exist_email'] = 'ajax/web_user/is_exist_email';
  */
 $route['authcode'] = 'public/common/auth_code';
 
+/**
+ *  检验验证码ajax
+ */
+$route['check_authcode'] = 'public/common/check_auth_code';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

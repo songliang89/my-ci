@@ -78,6 +78,11 @@ $(function(){
         }
     })
 
+    // 验证码
+    $("#input_authcode").blur(function(){
+        check_auth_code($(this).val());
+    })
+
     // 提交表单
     $("#submit_register").click(function(){
         var username = $("#user_name").val();
@@ -265,6 +270,7 @@ function isExistEmail(email)
     })
     return flag;
 }
+
 /**
  *  切换验证码.
  */
@@ -272,5 +278,23 @@ function change_auth_code()
 {
     var auth_img = "/authcode?";
     $("#authcode").attr("src",auth_img+"r="+Math.random())
+}
+
+function check_auth_code(auth_code)
+{
+    var flag = false;
+    if ("" == auth_code) {
+        return flag;
+    }
+    $.ajax({
+        type:"post",
+        url:"/check_authcode",
+        data:{auth_code:auth_code,r:Math.random()},
+        dataType:"json",
+        async:false,
+        success:function(data){
+
+        }
+    })
 }
 

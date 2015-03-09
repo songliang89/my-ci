@@ -18,4 +18,12 @@ class Common extends MY_Controller
     {
         return $this->authcode->show();
     }
+
+    public function check_auth_code()
+    {
+        $authCode = trim($this->input->post("auth_code"));
+        echo json_encode(array("code" => $this->authcode->check($authCode)));
+
+    }
+    //133 028 1976 0928 1616 80
 }
