@@ -92,5 +92,8 @@ $route['logout'] = 'user/user/logout';
  *  用户资料设置
  */
 $route['base_info'] = 'user/user/base_info';
+
+
+$route['district'] = 'category/category/district';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

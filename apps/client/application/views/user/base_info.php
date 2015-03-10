@@ -78,22 +78,72 @@ $this->load->view('web_public/nav');
 					<div class="am-form-group">
 						<label for="user-name" class="am-u-sm-3 am-form-label">出生年份</label>
 						<div class="am-u-sm-9">
-							<input type="password" id="user-name" placeholder="性别">
-							<small>输入你的名字，让我们记住你。</small>
+							<input type="password" id="user-name" placeholder="出生年份">
+							<small>出生年份</small>
 						</div>
 					</div>
 					<div class="am-form-group">
 						<label for="user-name" class="am-u-sm-3 am-form-label">现居住地</label>
 						<div class="am-u-sm-9">
-							<input type="password" id="user-name" placeholder="性别">
-							<small>输入你的名字，让我们记住你。</small>
+							<input type="password" id="user-name" placeholder="现居住地">
+							<small>现居住地</small>
 						</div>
 					</div>
 					<div class="am-form-group">
 						<label for="user-name" class="am-u-sm-3 am-form-label">学历</label>
 						<div class="am-u-sm-9">
-							<input type="password" id="user-name" placeholder="性别">
-							<small>输入你的名字，让我们记住你。</small>
+							<input type="password" id="user-name" placeholder="学历">
+							<small>学历</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">身高</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="身高">
+							<small>身高</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">籍贯</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="籍贯">
+							<small>籍贯</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">婚姻状况</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="婚姻状况">
+							<small>婚姻状况</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">期望行业</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="期望行业">
+							<small>期望行业</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">工作地区</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="工作地区
+							">
+							<small>工作地区</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">期望职位</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="期望职位">
+							<small>期望职位</small>
+						</div>
+					</div>
+					<div class="am-form-group">
+						<label for="user-name" class="am-u-sm-3 am-form-label">工作性质</label>
+						<div class="am-u-sm-9">
+							<input type="password" id="user-name" placeholder="工作性质">
+							<small>工作性质</small>
 						</div>
 					</div>
 					<div class="am-form-group">
