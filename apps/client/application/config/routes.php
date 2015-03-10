@@ -82,5 +82,10 @@ $route['authcode'] = 'public/common/auth_code';
  *  检验验证码ajax
  */
 $route['check_authcode'] = 'public/common/check_auth_code';
+
+/**
+ * 退出
+ */
+$route['logout'] = 'user/user/logout';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

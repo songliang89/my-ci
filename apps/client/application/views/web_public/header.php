@@ -24,6 +24,7 @@
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="<?php echo base_url('assets/amaze/js/jquery.min.js');?>"></script>
 	<script src="<?php echo base_url('assets/amaze/js/amazeui.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/jquery.cookie.js');?>"></script>
 	<!--<![endif]-->
 	<script src="<?php echo base_url('assets/amaze/js/app.js')?>"></script>
 </head>
