@@ -64,7 +64,7 @@ class District_model extends MY_Model
 	{
 		$sql = "
 				SELECT
-						parentid,category_name,category_order
+						id,parentid,category_name,category_order
 				FROM
 						{$this->tableName()}
 				WHERE
