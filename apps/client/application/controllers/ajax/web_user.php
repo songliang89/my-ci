@@ -12,6 +12,8 @@ class Web_user extends MY_Controller
 		parent::__construct();
 		$this->load->helper('tools');
 		$this->load->model('user/web_user_model');
+		$this->load->library('authcode');
+		$this->load->library('session');
 		if (!$this->input->is_ajax_request()) {
 			$jsonData = array(
 				'code' => -1,
@@ -159,6 +161,24 @@ class Web_user extends MY_Controller
 			$jsonData = array(
 				'code' => -3,
 				'msg' => '密码不能为空'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
+
+		$authcode = trim($this->input->post('authcode'));
+		if ($authcode == "") {
+			$jsonData = array(
+				'code' => -4,
+				'msg' => '验证码不能为空'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
+		if (!$this->authcode->check($authcode)) {
+			$jsonData = array(
+				'code' => -5,
+				'msg' => '验证码错误'
 			);
 			echo json_encode($jsonData);
 			exit;

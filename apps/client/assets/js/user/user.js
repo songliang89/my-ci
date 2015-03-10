@@ -78,11 +78,6 @@ $(function(){
         }
     })
 
-    // 验证码
-    $("#input_authcode").blur(function(){
-        check_auth_code($(this).val());
-    })
-
     // 提交表单
     $("#submit_register").click(function(){
         var username = $("#user_name").val();
@@ -181,9 +176,25 @@ $(function(){
         }
     })
 
+    // 验证码
+    $("#input_authcode").blur(function(){
+        if ($(this).val() == "") {
+            $("#authcode_tips").show().html("验证码不能为空").css("color","red");
+        } else {
+            if (!check_auth_code($(this).val())) {
+                $("#authcode_tips").show().html("验证码错误").css("color","red");
+            } else {
+                $("#authcode_tips").hide().html("").css("color","");
+            }
+        }
+    }).focus(function(){
+        $("#authcode_tips").show().html("请输入验证码").css("color","");
+    })
+
     $("#login_submit").on("click",function(){
         var user_name = $("#login_user_name").val();
         var password = $("#login_password").val();
+        var authcode = $("#input_authcode").val();
         if (user_name == "") {
             $("#login_user_name_tips").show().html("用户名不能为空").css("color","red");
             return false;
@@ -192,9 +203,19 @@ $(function(){
             $("#login_password_tips").show().html("密码不能为空").css("color","red");
             return false;
         }
+        if (authcode == "") {
+            $("#authcode_tips").show().html("验证码不能为空").css("color","red");
+            return false;
+        }
+        if (!check_auth_code(authcode)) {
+            $("#authcode_tips").show().html("验证码错误").css("color","red");
+            return false;
+        }
+
         var postData = {
             user_name:user_name,
             password: $.md5(password),
+            authcode : authcode,
             r:Math.random()
         };
         $.ajax({
@@ -206,6 +227,8 @@ $(function(){
                 if (data.code == 1) {
                     alert(data.msg);
                     location.href="/";
+                }else if(data.code == -5){
+                    $("#authcode_tips").show().html("验证码错误").css("color","red");
                 } else {
                     $("#login_tips").show().html("用户名或密码错误").css("color","red");
                 }
@@ -293,8 +316,10 @@ function check_auth_code(auth_code)
         dataType:"json",
         async:false,
         success:function(data){
-
+            flag = data.code;
         }
     })
+    console.log(flag);
+    return flag;
 }
 
