@@ -9,6 +9,7 @@ $this->load->view('web_public/nav');
 			</div>
 			<div class="am-tab-panel">
 				<form class="am-form" onsubmit="return false;">
+					<input type="hidden" value="<?php echo $url;?>" id="redirect_url">
 					<div class="am-g am-margin-top">
 						<div class="am-u-sm-4 am-u-md-2 am-text-right">
 							用户名

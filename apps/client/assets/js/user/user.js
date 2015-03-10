@@ -206,6 +206,7 @@ $(function(){
         var user_name = $("#login_user_name").val();
         var password = $("#login_password").val();
         var authcode = $("#input_authcode").val();
+        var redirect_url = $("#redirect_url").val();
         if (user_name == "") {
             $("#login_user_name_tips").show().html("用户名不能为空").css("color","red");
             return false;
@@ -237,7 +238,7 @@ $(function(){
             success:function(data){
                 if (data.code == 1) {
                     alert(data.msg);
-                    location.href="/";
+                    location.href=redirect_url;
                 }else if(data.code == -5){
                     $("#authcode_tips").show().html("验证码错误").css("color","red");
                 } else {

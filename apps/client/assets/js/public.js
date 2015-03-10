@@ -49,5 +49,19 @@ function checkMobile(str)
     }
 }
 
+function userLogin()
+{
+    var userid = $.cookie("userid");
+    var username = $.cookie("username");
+    if (typeof userid != "undefined" && typeof username != "undefined") {
+        $("#login").hide();
+        $("#register").hide();
+        $("#user_msg").show();
+        $("#logout").show();
+        $("#userinfo").show();
+        $("#username").html(username);
+    }
+}
 
+userLogin();
 

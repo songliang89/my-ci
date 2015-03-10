@@ -20,6 +20,27 @@ class User extends MY_Controller
 
 	public function login()
 	{
-		$this->load->view('user/login');
+		$url = urldecode($this->input->get("url"));
+		$data = array(
+			'url' => $url
+		);
+		$this->load->view('user/login',$data);
+	}
+
+	public function index($userid)
+	{
+
+	}
+
+	/**
+	 * 退出登录.
+	 */
+	public function logout()
+	{
+		$url = urldecode($this->input->get("url"));
+		setcookie("userid","",(time()+3600*24*7),'/','',false,false);
+		setcookie("username","",(time()+3600*24*7),'/','',false,false);
+		setcookie("user_hash","",(time()+3600*24*7),'/','',false,true);
+		redirect($url);
 	}
 }
