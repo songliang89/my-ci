@@ -26,12 +26,6 @@ class User extends MY_Controller
 		);
 		$this->load->view('user/login',$data);
 	}
-
-	public function index($userid)
-	{
-
-	}
-
 	/**
 	 * 退出登录.
 	 */
@@ -42,5 +36,12 @@ class User extends MY_Controller
 		setcookie("username","",(time()+3600*24*7),'/','',false,false);
 		setcookie("user_hash","",(time()+3600*24*7),'/','',false,true);
 		redirect($url);
+	}
+
+	public function base_info()
+	{
+		$url = current_url();
+		$userid = isLogin($url);
+		$this->load->view("user/base_info");
 	}
 }

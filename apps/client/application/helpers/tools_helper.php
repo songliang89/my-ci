@@ -58,3 +58,15 @@ function saveUserCookie($userid,$username,$password)
 		setcookie("user_hash",$token,(time()+3600*24*7),'/','',false,true);
 	}
 }
+
+if (!function_exists("isLogin")) {
+	function isLogin($url = "")
+	{
+		$userid = isset($_COOKIE['userid']) ? (int)$_COOKIE['userid'] : 0;
+		$userName = isset($_COOKIE['username']) ? $_COOKIE['username'] :"";
+		if (!$userid || !$userName) {
+			redirect("login?url=".$url);
+		}
+		return $userid;
+	}
+}

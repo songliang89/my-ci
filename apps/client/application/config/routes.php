@@ -87,5 +87,10 @@ $route['check_authcode'] = 'public/common/check_auth_code';
  * 退出
  */
 $route['logout'] = 'user/user/logout';
+
+/**
+ *  用户资料设置
+ */
+$route['base_info'] = 'user/user/base_info';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
