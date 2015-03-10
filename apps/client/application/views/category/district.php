@@ -65,7 +65,8 @@ $this->load->view('web_public/nav');
 				<?php
 					foreach ($data as $key => $val) {
 				?>
-					<tr>
+						<?php if ($val['parentid'] !=0){?>
+					<tr style="display: none;">
 						<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>"/></td>
 						<td><?php echo $val["id"];?></td>
 						<td><a href="javascript:;"><?php echo $val["category_name"];?></a></td>
@@ -80,6 +81,27 @@ $this->load->view('web_public/nav');
 							</div>
 						</td>
 					</tr>
+							<?php
+						} else {
+							?>
+							<tr>
+								<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>"/></td>
+								<td><?php echo $val["id"];?></td>
+								<td><a href="javascript:;"><?php echo $val["category_name"];?></a></td>
+								<td><?php echo $val["category_order"];?></td>
+								<td>
+									<div class="am-btn-toolbar">
+										<div class="am-btn-group am-btn-group-xs">
+											<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+											<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+											<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						<?php
+						}
+							?>
 				<?php
 					}
 				?>
