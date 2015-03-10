@@ -128,9 +128,8 @@ class Web_user_model extends MY_Model
 		if (getUserPassword($password,$salt) == $userPassword) {
 			$loginInfo['code'] = 1;
 			$loginInfo['msg'] = "登录成功";
-
 			//todo 记录 cookie
-
+			saveUserCookie($userInfo['id'],$user_name,$password);
 		} else {
 			$loginInfo['status'] = false;
 			$loginInfo['msg'] = "用户名或密码不正确";

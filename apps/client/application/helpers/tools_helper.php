@@ -41,3 +41,20 @@ function getUserPassword($password,$randomStr)
 {
 	return md5(md5($password).$randomStr);
 }
+
+/**
+ * 记录登录用户cookie
+ *
+ * @param $userid
+ * @param $username
+ * @param $password
+ */
+function saveUserCookie($userid,$username,$password)
+{
+	if ($userid && $username && $password) {
+		setcookie("userid",$userid,(time()+3600*24*7),'/','',false,true);
+		$token = md5(md5($userid).$password);
+		setcookie("username",$username,(time()+3600*24*7),'/','',false,true);
+		setcookie("user_hash",$token,(time()+3600*24*7),'/','',false,true);
+	}
+}
