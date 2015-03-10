@@ -84,6 +84,7 @@ $(function(){
         var email = $("#email").val();
         var password = $("#password").val();
         var password2 = $("#passowrd2").val();
+        var authcode = $("#input_authcode").val();
         if (username == "") {
             $("#user_name_tips").show().html("用户名不能为空").css("color","red");
             return false;
@@ -116,10 +117,19 @@ $(function(){
             $("#password2_tips").show().html("两次输入密码不一致").css("color","red");
             return false;
         }
+        if (authcode == "") {
+            $("#authcode_tips").show().html("验证码不能为空").css("color","red");
+            return false;
+        }
+        if (!check_auth_code(authcode)) {
+            $("#authcode_tips").show().html("验证码错误").css("color","red");
+            return false;
+        }
         var postData = {
             user_name:username,
             email:email,
             password: $.md5(password),
+            authcode : authcode,
             r:Math.random()
         };
         // ajax
@@ -137,13 +147,14 @@ $(function(){
                     $("#email_tips").show().html("邮箱不能为空").css("color","red");
                 } else if(data.code == "-4") {
                     $("#password_tips").show().html("密码不能为空").css("color","red");
+                }else if (data.code == "-6"){
+                    $("#authcode_tips").show().html("验证码错误").css("color","red");
                 } else if(data.code == "0") {
                     alert(data.msg);
                 } else {
                     alert(data.msg);
                     location.href = "/";
                 }
-
             }
         })
     })

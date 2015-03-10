@@ -67,7 +67,24 @@ class Web_user extends MY_Controller
 			echo json_encode($jsonData);
 			exit;
 		}
-
+		// 验证码
+		$authcode = trim($this->input->post('authcode'));
+		if ($authcode == "") {
+			$jsonData = array(
+				'code' => -5,
+				'msg' => '验证码不能为空'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
+		if (!$this->authcode->check($authcode)) {
+			$jsonData = array(
+				'code' => -6,
+				'msg' => '验证码错误'
+			);
+			echo json_encode($jsonData);
+			exit;
+		}
 		// saveData
 		$randomStr = getRandomStr();
 		$saveData = array(
