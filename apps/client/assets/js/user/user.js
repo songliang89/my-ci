@@ -331,7 +331,5 @@ function check_auth_code(auth_code)
             flag = data.code;
         }
     })
-    console.log(flag);
     return flag;
 }
-

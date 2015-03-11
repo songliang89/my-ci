@@ -43,7 +43,6 @@ $(function(){
         } else {
             $("#check_all").prop("checked",false);
         }
-        console.log(j);
         if ($(this).is(":checked")) {
             $(".child_"+$(this).val()).each(function(key,obj){
                 $(obj).prop("checked",true);
@@ -54,7 +53,25 @@ $(function(){
             })
         }
     })
+
+    // 点击子类
+    $(document).on("click",".child",function(){
+         if ($(this).is(":checked")) {
+             var j = 0;
+            $(".child_"+$(this).attr("pid")).each(function(key,obj){
+                if ($(obj).is(":checked")) {
+                    j++;
+                }
+            })
+             if (j == $(".child_"+$(this).attr("pid")).length) {
+                 $("#parent_"+$(this).attr("pid")).prop("checked",true);
+             }
+         } else {
+             $("#parent_"+$(this).attr("pid")).prop("checked",false);
+         }
+    })
 })
+
 /**
  * 获取 子类列表.
  *
