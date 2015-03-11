@@ -95,4 +95,12 @@ class District_model extends MY_Model
 		$data = $this->findAll($where,0,0,"category_order desc");
 		return $data;
 	}
+
+	function updateDistrict($data)
+	{
+		if (empty($data)) {
+			return false;
+		}
+		return $this->updateByPk($data["id"],$data);
+	}
 }

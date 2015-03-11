@@ -4,7 +4,7 @@ $this->load->view('web_public/nav');
 ?>
 	<!-- content start -->
 	<div class="admin-content">
-
+		<form class="am-form" action="" method="post">
 	<div class="am-cf am-padding">
 		<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">表格</strong> / <small>Table</small></div>
 	</div>
@@ -14,7 +14,7 @@ $this->load->view('web_public/nav');
 			<div class="am-btn-toolbar">
 				<div class="am-btn-group am-btn-group-xs">
 					<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-					<button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+					<button type="submit" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
 					<button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
 					<button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
 				</div>
@@ -45,7 +45,6 @@ $this->load->view('web_public/nav');
 
 	<div class="am-g">
 	<div class="am-u-sm-12">
-	<form class="am-form">
 	<table class="am-table am-table-striped am-table-hover table-main">
 	<thead>
 	<tr>
@@ -66,15 +65,29 @@ $this->load->view('web_public/nav');
 					foreach ($data as $key => $val) {
 				?>
 							<tr>
-								<td><input id="parent_<?php echo $val["id"];?>" type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>" class="parent" /></td>
-								<td><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>" handle="launch"></i>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ><?php echo $val["category_name"];?></a></td>
+								<td>
+									<input id="parent_<?php echo $val["id"];?>" type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>" class="parent" />
+									<input name="save_id[]" value="<?php echo $val["id"];?>" type="hidden">
+								</td>
+								<td>
+									<div class="am-g">
+										<div class="am-u-sm-1"><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>" handle="launch"></i>  &nbsp;&nbsp;&nbsp;&nbsp;</div>
+										<div class="am-u-sm-4 am-u-end">
+												<input type="text" name="category_name[]" value="<?php echo $val["category_name"];?>" class="">
+										</div>
+									</div>
+								</td>
 								<td><?php echo $val["id"];?></td>
-								<td><?php echo $val["category_order"];?></td>
+								<td>
+									<div class="am-g">
+										<div class="am-u-sm-4 am-u-end">
+										<input type="text" value="<?php echo $val["category_order"];?>" name="category_order[]"></td>
+										</div>
+									</div>
 								<td>
 									<div class="am-btn-toolbar">
 										<div class="am-btn-group am-btn-group-xs">
 											<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-											<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
 											<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
 										</div>
 									</div>

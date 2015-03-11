@@ -9,7 +9,7 @@ $(function(){
         if ($(this).attr("handle") == "launch") {
             //alert();
             var html = getDistrictChildList($(this).attr("id"),$("#parent_"+$(this).attr("id")).is(":checked"));
-            $(this).parent().parent().after(html);
+            $(this).parent().parent().parent().parent().after(html);
             $(this).attr("handle","un_launch").removeClass("am-icon-folder-o").addClass("am-icon-folder-open");
         } else {
             $(".tr_"+$(this).attr("id")).remove();

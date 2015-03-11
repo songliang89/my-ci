@@ -31,21 +31,30 @@ class Category_ajax extends MY_Controller
 			$html .= '<tr class="tr_'.$val['parentid'].'">
 						<td>
 							<input pid="'.$val['parentid'].'" type="checkbox" name="district_id[]" value="'.$val['id'].'" class="child_'.$val['parentid'].' child" '.$ischecked.'>
+							<input type="hidden" name="save_id[]" value="'.$val['id'].'">
 						</td>
 						<td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">'.$val['category_name'].'</a>
+							<div class="am-g">
+								<div class="am-u-sm-3">&nbsp;</div>
+								<div class="am-u-sm-4 am-u-end">
+									<input type="text" name="category_name[]" value="'.$val['category_name'].'" class="">
+								</div>
+							</div>
 						</td>
 						<td>
 							'.$val['id'].'
 						</td>
 						<td>
-							'.$val['category_order'].'
+						<div class="am-g">
+										<div class="am-u-sm-4 am-u-end">
+										<input type="text" value="'.$val['category_order'].'" name="category_order[]"></td>
+										</div>
+									</div>
 						</td>
 						<td>
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
 									<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-									<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
 									<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
 								</div>
 							</div>
