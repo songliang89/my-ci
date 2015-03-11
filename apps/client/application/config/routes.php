@@ -38,9 +38,68 @@
 |
 */
 
-$route['default_controller'] = "account";
+$route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+/**
+ * 用户注册
+ */
+$route['register'] = 'user/user/register';
+
+/**
+ * 用户登录
+ */
+$route['login'] = 'user/user/login';
+
+/**
+ *  用户注册ajax 提交
+ */
+$route['register_ajax_submit'] = 'ajax/web_user/register';
+
+/**
+ *  用户登录ajax 提交
+ */
+$route['login_ajax_submit'] = 'ajax/web_user/login';
+
+
+/**
+ *  判断用户名是否存在
+ */
+$route['register_is_exist_username'] = 'ajax/web_user/is_exist_user';
+
+/**
+ * 判断注册邮箱是否存在
+ */
+$route['register_is_exist_email'] = 'ajax/web_user/is_exist_email';
+
+
+/**
+ *  验证码
+ */
+$route['authcode'] = 'public/common/auth_code';
+
+/**
+ *  检验验证码ajax
+ */
+$route['check_authcode'] = 'public/common/check_auth_code';
+
+/**
+ * 退出
+ */
+$route['logout'] = 'user/user/logout';
+
+/**
+ *  用户资料设置
+ */
+$route['base_info'] = 'user/user/base_info';
+
+
+$route['district'] = 'category/category/district';
+
+/**
+ *  获取子级地区列表ajax
+ */
+$route['district_child_list'] = 'ajax/category_ajax/get_district_child_list';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
