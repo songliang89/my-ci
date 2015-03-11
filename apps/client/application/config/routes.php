@@ -95,5 +95,11 @@ $route['base_info'] = 'user/user/base_info';
 
 
 $route['district'] = 'category/category/district';
+
+/**
+ *  获取子级地区列表ajax
+ */
+$route['district_child_list'] = 'ajax/category_ajax/get_district_child_list';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -45,7 +45,7 @@ class District_model extends MY_Model
 	{
 		$sql = "
 				SELECT
-						parentid,category_name,category_order
+						id,parentid,category_name,category_order
 				FROM
 						{$this->tableName()}
 				WHERE
@@ -64,7 +64,7 @@ class District_model extends MY_Model
 	{
 		$sql = "
 				SELECT
-						parentid,category_name,category_order
+						id,parentid,category_name,category_order
 				FROM
 						{$this->tableName()}
 				WHERE
@@ -73,5 +73,34 @@ class District_model extends MY_Model
 						category_order DESC
 		";
 		return $this->query($sql);
+	}
+
+	/**
+	 * 通过父级id 获取子级列表.
+	 *
+	 * @param $pid
+	 *
+	 * @return array
+	 */
+	function getChildListByPid($pid)
+	{
+		$data = array();
+		if ("" == $pid) {
+			return $data;
+		}
+		$where = array(
+			'is_delete' => 0,
+			'parentid' => $pid
+		);
+		$data = $this->findAll($where,0,0,"category_order desc");
+		return $data;
+	}
+
+	function updateDistrict($data)
+	{
+		if (empty($data)) {
+			return false;
+		}
+		return $this->updateByPk($data["id"],$data);
 	}
 }
