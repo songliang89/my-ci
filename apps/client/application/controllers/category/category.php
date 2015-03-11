@@ -40,4 +40,9 @@ class Category extends MY_Controller
 		);
 		$this->load->view('category/district',$view_data);
 	}
+
+	function edit()
+	{
+		
+	}
 }
