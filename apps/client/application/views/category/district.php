@@ -52,7 +52,7 @@ $this->load->view('web_public/nav');
 		<th class="table-check">
 			<input type="checkbox" />
 		</th>
-		<th class="table-id">ID</th>
+		<!--<th class="table-id">ID</th>-->
 		<th class="table-title">地区</th>
 		<th class="table-type">排序</th>
 		<th class="table-set">操作</th>
@@ -65,29 +65,10 @@ $this->load->view('web_public/nav');
 				<?php
 					foreach ($data as $key => $val) {
 				?>
-						<?php if ($val['parentid'] !=0){?>
-					<tr style="display: none;">
-						<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>"/></td>
-						<td><?php echo $val["id"];?></td>
-						<td><a href="javascript:;"><?php echo $val["category_name"];?></a></td>
-						<td><?php echo $val["category_order"];?></td>
-						<td>
-							<div class="am-btn-toolbar">
-								<div class="am-btn-group am-btn-group-xs">
-									<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-									<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-									<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-								</div>
-							</div>
-						</td>
-					</tr>
-							<?php
-						} else {
-							?>
 							<tr>
 								<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>"/></td>
-								<td><?php echo $val["id"];?></td>
-								<td><a href="javascript:;"><?php echo $val["category_name"];?></a></td>
+								<!--<td><?php /*echo $val["id"];*/?></td>-->
+								<td><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>"></i>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ><?php echo $val["category_name"];?></a></td>
 								<td><?php echo $val["category_order"];?></td>
 								<td>
 									<div class="am-btn-toolbar">
@@ -99,9 +80,6 @@ $this->load->view('web_public/nav');
 									</div>
 								</td>
 							</tr>
-						<?php
-						}
-							?>
 				<?php
 					}
 				?>
@@ -132,6 +110,7 @@ $this->load->view('web_public/nav');
 	</div>
 	</div>
 	<!-- content end -->
+<script src="<?php echo base_url("assets/js/category/category.js");?>"></script>
 <?php
 $this->load->view('web_public/footer');
 ?>

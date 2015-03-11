@@ -74,4 +74,25 @@ class District_model extends MY_Model
 		";
 		return $this->query($sql);
 	}
+
+	/**
+	 * 通过父级id 获取子级列表.
+	 *
+	 * @param $pid
+	 *
+	 * @return array
+	 */
+	function getChildListByPid($pid)
+	{
+		$data = array();
+		if ("" == $pid) {
+			return $data;
+		}
+		$where = array(
+			'is_delete' => 0,
+			'parentid' => $pid
+		);
+		$data = $this->findAll($where,0,0,"category_order desc");
+		return $data;
+	}
 }

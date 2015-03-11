@@ -15,7 +15,7 @@ class Category extends MY_Controller
 
 	function district()
 	{
-		$data = $this->district_model->getDistrictAllList();
+		$data = $this->district_model->getTopCategoryList();
 		$view_data = array(
 			'data' => $data
 		);
