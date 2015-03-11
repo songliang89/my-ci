@@ -41,8 +41,11 @@ class Category extends MY_Controller
 		$this->load->view('category/district',$view_data);
 	}
 
+	/**
+	 *  地区编辑页
+	 */
 	function edit()
 	{
-		
+
 	}
 }
