@@ -93,13 +93,20 @@ $route['logout'] = 'user/user/logout';
  */
 $route['base_info'] = 'user/user/base_info';
 
-
+/**
+ *  地区列表页
+ */
 $route['district'] = 'category/category/district';
 
 /**
  *  获取子级地区列表ajax
  */
 $route['district_child_list'] = 'ajax/category_ajax/get_district_child_list';
+
+/**
+ *  地区编辑页
+ */
+$route['district_edit/([0-9]+)?'] = 'category/category/edit/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

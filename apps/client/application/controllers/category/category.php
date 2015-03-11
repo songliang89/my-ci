@@ -44,8 +44,17 @@ class Category extends MY_Controller
 	/**
 	 *  地区编辑页
 	 */
-	function edit()
+	function edit($cateID)
 	{
-
+		$topCategoryList = $this->district_model->getTopCategoryList();
+		$info = $this->district_model->getInfo($cateID);
+		if (empty($info)) {
+			redirect("/district");
+		}
+		$view_data = array(
+			'topList' => $topCategoryList,
+			'info' => $info
+		);
+		$this->load->view('category/district_edit',$view_data);
 	}
 }
