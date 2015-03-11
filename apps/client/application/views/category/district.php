@@ -50,7 +50,7 @@ $this->load->view('web_public/nav');
 	<thead>
 	<tr>
 		<th class="table-check">
-			<input type="checkbox" />
+			<input type="checkbox" name="" title="全选/反选" id="check_all"/>
 		</th>
 		<th class="table-title">地区</th>
 		<th class="table-id">ID</th>
