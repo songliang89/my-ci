@@ -46,6 +46,14 @@ class Category extends MY_Controller
 	 */
 	function edit($cateID)
 	{
+		$url = current_url();
+		$postData = $this->input->post();
+		if (!empty($postData)) {
+			if (isset($postData['id']) && ""!=$postData["id"]) {
+				$this->district_model->updateDistrict($postData);
+			}
+			redirect($url);
+		}
 		$topCategoryList = $this->district_model->getTopCategoryList();
 		$info = $this->district_model->getInfo($cateID);
 		if (empty($info)) {
