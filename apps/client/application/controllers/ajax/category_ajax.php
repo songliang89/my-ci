@@ -13,6 +13,9 @@ class Category_ajax extends MY_Controller
 		$this->load->model('category/district_model');
 	}
 
+	/**
+	 * 获取子类列表.
+	 */
 	function get_district_child_list()
 	{
 		$html = "";
@@ -22,27 +25,29 @@ class Category_ajax extends MY_Controller
 			echo $html;
 			exitt;
 		}
-
 		foreach ($list as $key => $val) {
-			$html .= '<tr>
+			$html .= '<tr class="tr_'.$val['parentid'].'">
 						<td>
 							<input type="checkbox" name="district_id[]" value="'.$val['id'].'">
 						</td>
 						<td>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">'.$val['category_name'].'</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">'.$val['category_name'].'</a>
+						</td>
+						<td>
+							'.$val['id'].'
 						</td>
 						<td>
 							'.$val['category_order'].'
 						</td>
 						<td>
-									<div class="am-btn-toolbar">
-										<div class="am-btn-group am-btn-group-xs">
-											<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-											<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-											<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-										</div>
-									</div>
-								</td>
+							<div class="am-btn-toolbar">
+								<div class="am-btn-group am-btn-group-xs">
+									<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+									<button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+									<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+								</div>
+							</div>
+						</td>
 					  </tr>';
 		}
 		echo $html;

@@ -52,8 +52,8 @@ $this->load->view('web_public/nav');
 		<th class="table-check">
 			<input type="checkbox" />
 		</th>
-		<!--<th class="table-id">ID</th>-->
 		<th class="table-title">地区</th>
+		<th class="table-id">ID</th>
 		<th class="table-type">排序</th>
 		<th class="table-set">操作</th>
 	</tr>
@@ -67,8 +67,8 @@ $this->load->view('web_public/nav');
 				?>
 							<tr>
 								<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>"/></td>
-								<!--<td><?php /*echo $val["id"];*/?></td>-->
-								<td><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>"></i>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ><?php echo $val["category_name"];?></a></td>
+								<td><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>" handle="launch"></i>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ><?php echo $val["category_name"];?></a></td>
+								<td><?php echo $val["id"];?></td>
 								<td><?php echo $val["category_order"];?></td>
 								<td>
 									<div class="am-btn-toolbar">
@@ -88,7 +88,7 @@ $this->load->view('web_public/nav');
 		?>
 	</tbody>
 	</table>
-	<div class="am-cf">
+	<!--<div class="am-cf">
 		共 15 条记录
 		<div class="am-fr">
 			<ul class="am-pagination">
@@ -103,7 +103,7 @@ $this->load->view('web_public/nav');
 		</div>
 	</div>
 	<hr />
-	<p>注：.....</p>
+	<p>注：.....</p>-->
 	</form>
 	</div>
 
