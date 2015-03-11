@@ -28,7 +28,7 @@ class Category_ajax extends MY_Controller
 		foreach ($list as $key => $val) {
 			$html .= '<tr class="tr_'.$val['parentid'].'">
 						<td>
-							<input type="checkbox" name="district_id[]" value="'.$val['id'].'">
+							<input type="checkbox" name="district_id[]" value="'.$val['id'].'" class="child_'.$val['parentid'].'">
 						</td>
 						<td>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">'.$val['category_name'].'</a>

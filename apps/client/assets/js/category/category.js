@@ -28,6 +28,19 @@ $(function(){
             })
         }
     })
+
+    // 点击父类 选中子类
+    $(".parent").on("click",function(){
+        if ($(this).is(":checked")) {
+            $(".child_"+$(this).val()).each(function(key,obj){
+                $(obj).prop("checked",true);
+            })
+        } else {
+            $(".child_"+$(this).val()).each(function(key,obj){
+                $(obj).prop("checked",false);
+            })
+        }
+    })
 })
 /**
  * 获取 子类列表.
