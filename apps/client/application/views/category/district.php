@@ -66,7 +66,7 @@ $this->load->view('web_public/nav');
 					foreach ($data as $key => $val) {
 				?>
 							<tr>
-								<td><input type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>" class="parent"/></td>
+								<td><input id="parent_<?php echo $val["id"];?>" type="checkbox"  name="district_id[]" value="<?php echo $val["id"];?>" class="parent" /></td>
 								<td><i class="am-icon-folder-o launch" style="cursor: pointer;" id="<?php echo $val["id"];?>" handle="launch"></i>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;" ><?php echo $val["category_name"];?></a></td>
 								<td><?php echo $val["id"];?></td>
 								<td><?php echo $val["category_order"];?></td>

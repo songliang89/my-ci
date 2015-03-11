@@ -20,15 +20,17 @@ class Category_ajax extends MY_Controller
 	{
 		$html = "";
 		$pid = (int)$this->input->post('pid');
+		$checked = $this->input->post('checked');
 		$list = $this->district_model->getChildListByPid($pid);
 		if (empty($list)) {
 			echo $html;
 			exitt;
 		}
+		$ischecked = $checked=="true" ? "checked" : "";
 		foreach ($list as $key => $val) {
 			$html .= '<tr class="tr_'.$val['parentid'].'">
 						<td>
-							<input type="checkbox" name="district_id[]" value="'.$val['id'].'" class="child_'.$val['parentid'].'">
+							<input type="checkbox" name="district_id[]" value="'.$val['id'].'" class="child_'.$val['parentid'].'" '.$ischecked.'>
 						</td>
 						<td>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:;">'.$val['category_name'].'</a>
