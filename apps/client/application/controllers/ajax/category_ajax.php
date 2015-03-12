@@ -66,6 +66,6 @@ class Category_ajax extends MY_Controller
 
 	function district_delete()
 	{
-		
+
 	}
 }
