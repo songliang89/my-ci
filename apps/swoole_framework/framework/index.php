@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('PRC');
 define('DEBUG', 'on');
 //必须设置此目录,PHP程序的根目录
 define('WEBPATH', __DIR__);

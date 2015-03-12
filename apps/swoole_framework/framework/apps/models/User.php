@@ -8,5 +8,5 @@ class User extends Swoole\Model
      * 表名
      * @var string
      */
-    public $table = 'users';
+    public $table = 'web_user';
 }

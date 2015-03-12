@@ -7,7 +7,7 @@ class Db extends Swoole\Controller
     function apt_test()
     {
         $apt = new Swoole\SelectDB($this->db);
-        $apt->from('users');
+        $apt->from('web_user');
         $apt->equal('id', 1);
         $res = $apt->getall();
         var_dump($res);

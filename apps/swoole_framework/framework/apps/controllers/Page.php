@@ -8,6 +8,9 @@ class Page extends Swoole\Controller
     //hello world
     function index()
     {
+	    $user = new APP\DAO\User(1);
+	    $info = $user->get();
+	    var_dump($info);
         return "default page";
     }
 
@@ -26,14 +29,14 @@ class Page extends Swoole\Controller
     //缓存获取
     function cache_get()
     {
-        $result = $this->cache->get("swoole_var_1");
+        $result = $this->redis->get("swoole_var_1");
         var_dump($result);
     }
 
     //缓存设置
     function cache_set()
     {
-        $result = $this->cache->set("swoole_var_1", "swoole");
+        $result = $this->redis->set("swoole_var_1", "swoole");
         if($result)
         {
             echo "cache set success. Key=swoole_var_1";
