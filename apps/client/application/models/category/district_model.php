@@ -96,11 +96,35 @@ class District_model extends MY_Model
 		return $data;
 	}
 
+	/**
+	 *  更新
+	 *
+	 * @param $data
+	 *
+	 * @return boolean
+	 */
 	function updateDistrict($data)
 	{
 		if (empty($data)) {
 			return false;
 		}
 		return $this->updateByPk($data["id"],$data);
+	}
+
+	/**
+	 *
+	 * 获取地区详情.
+	 * @param $id
+	 *
+	 * @return array
+	 */
+	function getInfo($id)
+	{
+		$data = array();
+		if ("" == $id) {
+			return $data;
+		}
+		$data = $this->findByPk($id);
+		return $data;
 	}
 }
