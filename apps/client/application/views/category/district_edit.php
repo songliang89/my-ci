@@ -11,7 +11,7 @@ $this->load->view('web_public/nav');
 	<div class="am-container">
 		<div class="am-g">
 			<div class="am-cf am-padding">
-				<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">地区列表</strong> /修改地区 <small></small></div>
+				<div class="am-fl am-cf"><a href="<?php echo base_url("district")?>"><strong class="am-text-primary am-text-lg">地区列表</strong></a> /修改地区 <small></small></div>
 			</div>
 			<div class="am-tab-panel">
 				<form class="am-form" action="" method="post">
