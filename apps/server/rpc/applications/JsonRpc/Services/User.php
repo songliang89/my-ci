@@ -18,4 +18,9 @@ class User
 		$data = User_model::all();
 		return $data;
 	}
+
+	static function getUserById($id)
+	{
+		return User_model::find($id);
+	}
 }
