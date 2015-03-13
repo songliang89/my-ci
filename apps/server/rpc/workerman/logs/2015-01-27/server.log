@@ -1,0 +1,106 @@
+2015-01-27 14:57:59 Server:Workerman is starting ...
+2015-01-27 14:58:13 Server:Workerman is starting ...
+2015-01-27 14:58:14 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 15:07:07 Server:Workerman is shutting down
+2015-01-27 15:07:07 Server:Workerman stoped
+2015-01-27 15:07:42 Server:Workerman is starting ...
+2015-01-27 15:07:42 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 17:54:00 Server:Workerman is starting ...
+2015-01-27 17:54:00 Server:[33;40mWorkerman already started[0m
+2015-01-27 17:54:46 Server:Workerman is starting ...
+2015-01-27 17:54:46 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:01:22 Server:Workerman is shutting down
+2015-01-27 18:01:26 Server:Kill workers 32083 force!
+2015-01-27 18:01:26 Server:Kill workers[Monitor] force
+2015-01-27 18:01:27 Server:worker[32083:Monitor] exit with status 9
+2015-01-27 18:01:27 Server:Workerman stoped
+2015-01-27 18:01:27 Server:Workerman is starting ...
+2015-01-27 18:01:27 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:02:32 Server:Workerman is shutting down
+2015-01-27 18:02:36 Server:Kill workers 34187 force!
+2015-01-27 18:02:36 Server:Kill workers[Monitor] force
+2015-01-27 18:02:37 Server:worker[34187:Monitor] exit with status 9
+2015-01-27 18:02:37 Server:Workerman stoped
+2015-01-27 18:02:42 Server:Workerman is starting ...
+2015-01-27 18:02:42 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:09:06 Server:Workerman is shutting down
+2015-01-27 18:09:10 Server:Kill workers 34297 force!
+2015-01-27 18:09:10 Server:Kill workers[Monitor] force
+2015-01-27 18:09:11 Server:worker[34297:Monitor] exit with status 9
+2015-01-27 18:09:11 Server:Workerman stoped
+2015-01-27 18:10:47 Server:Workerman is starting ...
+2015-01-27 18:10:47 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:16:33 Server:Workerman is shutting down
+2015-01-27 18:16:37 Server:Kill workers 35548 force!
+2015-01-27 18:16:37 Server:Kill workers[JsonRpcWorker] force
+2015-01-27 18:16:37 Server:Kill workers 35493 force!
+2015-01-27 18:16:37 Server:Kill workers[Monitor] force
+2015-01-27 18:16:37 Server:worker[35548:JsonRpcWorker] exit with status 9
+2015-01-27 18:16:37 Server:worker[35493:Monitor] exit with status 9
+2015-01-27 18:16:37 Server:Workerman stoped
+2015-01-27 18:16:42 Server:Workerman is starting ...
+2015-01-27 18:16:42 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:16:58 Server:Workerman is shutting down
+2015-01-27 18:17:02 Server:Kill workers 37278 force!
+2015-01-27 18:17:02 Server:Kill workers[Monitor] force
+2015-01-27 18:17:03 Server:worker[37278:Monitor] exit with status 9
+2015-01-27 18:17:03 Server:Workerman stoped
+2015-01-27 18:17:24 Server:Workerman is starting ...
+2015-01-27 18:17:24 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:33:16 Server:Workerman reloading
+2015-01-27 18:33:20 Server:Kill workers 37511 force!
+2015-01-27 18:33:20 Server:worker[37511:JsonRpcWorker] exit with status 9
+2015-01-27 18:33:24 Server:Kill workers 37396 force!
+2015-01-27 18:33:24 Server:worker[37396:StatisticProvider] exit with status 9
+2015-01-27 18:33:28 Server:Kill workers 37397 force!
+2015-01-27 18:33:28 Server:worker[37397:StatisticWeb] exit with status 9
+2015-01-27 18:33:32 Server:Kill workers 37398 force!
+2015-01-27 18:33:32 Server:worker[37398:StatisticWorker] exit with status 9
+2015-01-27 18:33:36 Server:Kill workers 37400 force!
+2015-01-27 18:33:36 Server:Worker Restart Success
+2015-01-27 18:33:36 Server:worker[37400:Monitor] exit with status 9
+2015-01-27 18:33:48 Server:Workerman is shutting down
+2015-01-27 18:33:52 Server:Kill workers 37635 force!
+2015-01-27 18:33:52 Server:Kill workers[JsonRpcWorker] force
+2015-01-27 18:33:52 Server:Kill workers 37637 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticProvider] force
+2015-01-27 18:33:52 Server:Kill workers 37639 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticWeb] force
+2015-01-27 18:33:52 Server:Kill workers 37641 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticWorker] force
+2015-01-27 18:33:52 Server:Kill workers 37643 force!
+2015-01-27 18:33:52 Server:Kill workers[Monitor] force
+2015-01-27 18:33:52 Server:Kill workers 37626 force!
+2015-01-27 18:33:52 Server:Kill workers[JsonRpcWorker-1] force
+2015-01-27 18:33:52 Server:Kill workers 37627 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticProvider-2] force
+2015-01-27 18:33:52 Server:Kill workers 37628 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticWeb-3] force
+2015-01-27 18:33:52 Server:Kill workers 37629 force!
+2015-01-27 18:33:52 Server:Kill workers[StatisticWorker-4] force
+2015-01-27 18:33:52 Server:worker[37643:Monitor] exit with status 9
+2015-01-27 18:33:52 Server:worker[37641:StatisticWorker] exit with status 9
+2015-01-27 18:33:52 Server:worker[37639:StatisticWeb] exit with status 9
+2015-01-27 18:33:52 Server:worker[37637:StatisticProvider] exit with status 9
+2015-01-27 18:33:52 Server:worker[37635:JsonRpcWorker] exit with status 9
+2015-01-27 18:33:52 Server:worker[37629:StatisticWorker-4] exit with status 9
+2015-01-27 18:33:52 Server:worker[37628:StatisticWeb-3] exit with status 9
+2015-01-27 18:33:52 Server:worker[37627:StatisticProvider-2] exit with status 9
+2015-01-27 18:33:52 Server:worker[37626:JsonRpcWorker-1] exit with status 9
+2015-01-27 18:33:52 Server:Workerman stoped
+2015-01-27 18:33:56 Server:Workerman is starting ...
+2015-01-27 18:33:56 Server:[1A
+[KWorkerman start success ...[0m
+2015-01-27 18:41:10 Server:worker[37866:JsonRpcWorker] exit with status 65280
+2015-01-27 18:41:55 Server:worker[37870:JsonRpcWorker] exit with status 65280
+2015-01-27 18:41:58 Server:worker[37886:JsonRpcWorker] exit with status 65280
+2015-01-27 18:44:15 Server:worker[37888:JsonRpcWorker] exit with status 65280
+2015-01-27 18:45:21 Server:worker[37906:JsonRpcWorker] exit with status 65280

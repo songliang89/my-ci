@@ -1,0 +1,23 @@
+2015-03-13 11:14:26 Server:Workerman is starting ...
+2015-03-13 11:14:27 Server:[1A
+[KWorkerman start success ...[0m
+2015-03-13 11:16:43 Server:Workerman is shutting down
+2015-03-13 11:16:47 Server:Kill workers 28745 force!
+2015-03-13 11:16:47 Server:Kill workers[JsonRpcWorker] force
+2015-03-13 11:16:47 Server:Kill workers 28746 force!
+2015-03-13 11:16:47 Server:Kill workers[StatisticProvider] force
+2015-03-13 11:16:47 Server:Kill workers 28747 force!
+2015-03-13 11:16:47 Server:Kill workers[StatisticWeb] force
+2015-03-13 11:16:47 Server:Kill workers 28748 force!
+2015-03-13 11:16:47 Server:Kill workers[StatisticWorker] force
+2015-03-13 11:16:47 Server:Kill workers 28749 force!
+2015-03-13 11:16:47 Server:Kill workers[Monitor] force
+2015-03-13 11:16:47 Server:worker[28747:StatisticWeb] exit with status 9
+2015-03-13 11:16:47 Server:worker[28746:StatisticProvider] exit with status 9
+2015-03-13 11:16:47 Server:worker[28748:StatisticWorker] exit with status 9
+2015-03-13 11:16:47 Server:worker[28749:Monitor] exit with status 9
+2015-03-13 11:16:47 Server:worker[28745:JsonRpcWorker] exit with status 9
+2015-03-13 11:16:47 Server:Workerman stoped
+2015-03-13 15:41:27 Server:Workerman is starting ...
+2015-03-13 15:41:27 Server:[1A
+[KWorkerman start success ...[0m
