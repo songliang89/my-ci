@@ -24,7 +24,7 @@ class Category_ajax extends MY_Controller
 		$list = $this->district_model->getChildListByPid($pid);
 		if (empty($list)) {
 			echo $html;
-			exitt;
+			exit;
 		}
 		$ischecked = $checked=="true" ? "checked" : "";
 		foreach ($list as $key => $val) {
