@@ -24,9 +24,11 @@ class Welcome extends CI_Controller {
 	 */
 	function index()
 	{
-		$this->load->library('authcode');
-		$this->load->library('session');
-		echo $this->authcode->show();
+		/*$this->load->library('authcode');
+		$this->load->library('session');*/
+		$this->load->library('My_Redis_Cache',array("connect" => "default"));
+
+		//echo $this->authcode->show();
 	}
 }
 

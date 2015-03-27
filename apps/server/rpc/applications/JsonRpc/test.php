@@ -22,5 +22,9 @@ $user_client = RpcClient::instance('User');
 
 // getInfoByUid对应User类中的getInfoByUid方法
 #$ret_sync = $user_client->getUser();
-$ret_sync = $user_client->getUserById(1);
+$i = 1;
+while($i<1000) {
+    $ret_sync = $user_client->getUser();
+    $i++;
+}
 print_r($ret_sync);
