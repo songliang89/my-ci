@@ -12,6 +12,7 @@ class Zdm_search extends CI_Controller
 		parent::__construct();
 		$this->load->library('es');
 		$this->load->helper('url');
+        $this->load->library('My_Redis_Cache',array("connect" => "default"),'redis_cache');
 	}
 
 	function index()
@@ -68,7 +69,9 @@ class Zdm_search extends CI_Controller
                 );
             }
             $search_query = $this->es->get_search_query($param);
-            $data = $this->es->search($search_query);
+            //$data = $this->es->search($search_query);
+            $data = $this->redis_cache->library("es",'search',array($search_query),10000);
+            print_r($data);
         }
         $view_data = array(
             'data' => $data
