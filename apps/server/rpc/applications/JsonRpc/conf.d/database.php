@@ -15,4 +15,4 @@ $config['default'] = array(
 	'collation' => 'utf8_general_ci',
 	'prefix'    => ''
 );
-//return $config;
+return $config;
