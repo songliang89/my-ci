@@ -28,7 +28,7 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');*/
 		$this->load->library('My_Redis_Cache',array("connect" => "default"),'redis_cache');
         $this->load->model('user/web_user_model','web_user_model');
-        $data = $this->redis_cache->model('web_user_model','getInfoByName',array('admin'),1);
+        $data = $this->redis_cache->model('web_user_model','getInfoByName',array('admin'),1000);
         print_r($data);
 
 		//echo $this->authcode->show();
