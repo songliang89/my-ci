@@ -5,6 +5,9 @@
  * Date: 15/4/8
  * Time: 下午1:44
  */
+class aa extends Redis{
+
+}
 class Zdm_dy extends CI_Controller
 {
     function __construct()
@@ -113,13 +116,13 @@ class Zdm_dy extends CI_Controller
         $keywords_arr = explode("\n", $keywords);
         $keyword_count = count($keywords_arr);
         $article_type_count = count($this->article_type);
-        for($i = 1; $i <= 100000;$i++) {
+        for($i = 1; $i <= 10000;$i++) {
             $keyword = $keywords_arr[rand(0,$keyword_count-1)];
             if ($keyword == "") {
                 continue;
             }
             $article_type = $this->article_type[rand(0,$article_type_count-1)];
-            $dy_id = $i."-"."关键词-".$this->deal_special_characters(addslashes(rtrim(ltrim($keyword))))."-频道-".$article_type;
+            $dy_id = $i."-"."关键词-".trim($this->deal_special_characters(addslashes(rtrim(ltrim($keyword)))))."-频道-".$article_type;
             $index_params = array(
                 'index' => 'smzdm_article_index_v5' ,
                 'type'  => '.percolator',
