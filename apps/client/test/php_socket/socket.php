@@ -121,12 +121,13 @@ class Socket implements proto
     }
 }
 
-$url = 'http://www.smzdm.com/user/qiandao/jsonp_checkin';
+/*$url = 'http://www.smzdm.com/user/qiandao/jsonp_checkin';
 $object = new Socket($url);
 $object->setHeader("Cookie: smzdm_user_source=E5E02EFD9DF4A3C5681A043AC990FD09; bdshare_firstime=1435713168931; __gads=ID=f1684ffee1d61ab5:T=1435713149:S=ALNI_MYAck61ZbFpj9noC6z0NwH8-lT3Eg; c0722eb7aab91617c651ced198759f1d4=gIEWOzc%3D; right_top_pop_describe_box=1; first_login_uid=Mbo8; first_login_uname=linzhenlong; post_permission=postpermission; PHPSESSID=i21htof1r4ikko5beugjocf8t3; __jsluid=8c21742fe1bee407dae2f624b5f1549b; c59d3b9b908e38e0e9d29bfd2761e9e95=hahQNBA%3D; smzdm_user_view=AB3D81430BE62464FE3E3CA6B946D0C3; home_cover_stuff_cookie=1; cfbcd63555014fa4c77bed53c21c15a88=gv95xMQ%3D; wt3_eid=%3B999768690672041%7C2143580197300617378%232143694000800594956; wt3_sid=%3B999768690672041; _gat=1; smzdm_wordpress_360d4e510beef4fe51293184b8908074=user%3A1113155508%7C1437125911%7C16aa1a5375b1b25ca16940582b95c5d4; smzdm_wordpress_logged_in_360d4e510beef4fe51293184b8908074=user%3A1113155508%7C1437125911%7C9193ee44c66d0b6ffc2200f62f3c04f6; user-role-smzdm=subscriber; sess=MGM0NTh8MTQzNzEyNTkxMXwxMTEzMTU1NTA4fDA5M2JlYWZmMTVjZDdhZTI4MGQ4OWUxM2RmMzE4YjY3; user=%E4%BA%BA%E8%BE%BE%E5%BD%B1%E5%B0%84%7C1113155508; _ga=GA1.2.1108148260.1435713169; Hm_lvt_9b7ac3d38f30fe89ff0b8a0546904e58=1435912400,1436161523,1436756995,1436859910; Hm_lpvt_9b7ac3d38f30fe89ff0b8a0546904e58=1436953145; crtg_rta=; AJSTAT_ok_pages=13; AJSTAT_ok_times=22; amvid=e5e7962561fdc14bea84ececf611a961");
 $ret = $object->get();
 echo $ret;
-exit;
+exit;*/
+$url = "http://wiki.smzdm.com/create_submit";
 
 for ($i=1;$i<=10;$i++) {
 $object = new Socket($url);
