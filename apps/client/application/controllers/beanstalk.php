@@ -17,10 +17,12 @@ class beanstalk extends MY_Controller
     {
         $beanstalk = new \Pheanstalk\Pheanstalk('127.0.0.1');
         $beanstalk->useTube("testtube");
-        $beanstalk->put("job payload goes heres\n");
-
-        $job = $beanstalk->watch("testtube")->reserve();
-
+        /*for($i=1;$i<=100;$i++) {
+            $id = $beanstalk->putInTube("testtube","job payload goes heres\n".$i);
+            echo $id.PHP_EOL;
+        }*/
+        $job = $beanstalk->watch("testtube")->ignore('default')->reserve();
         echo $job->getData();
+        //$beanstalk->delete($job);
     }
 }

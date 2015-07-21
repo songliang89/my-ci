@@ -6,7 +6,10 @@ require __DIR__ . '/../libs/lib_config.php';
 
 $cloud = new Swoole\Client\SOA;
 $cloud->addServers(array('127.0.0.1:8888'));
-
+$ret9 = $cloud->task("BL\\Test::test3");
+$n = $cloud->wait(0.5);
+print_r($ret9);
+exit;
 $s = microtime(true);
 $ok = $err = 0;
 for ($i = 0; $i < 1; $i++)
@@ -19,6 +22,7 @@ for ($i = 0; $i < 1; $i++)
     $ret3 = $cloud->task("BL\\Test::test1", "hello{$i}_3");
     $ret4 = $cloud->task("BL\\Test::test1", "hello{$i}_4");
     $ret5 = $cloud->task("App\\Test::test1");
+    $ret9 = $cloud->task("BL\\Test::test3");
     $ret6 = $cloud->task("BL\\Test::test1", "hello{$i}_6");
     $ret7 = $cloud->task("BL\\Test::test1", "hello{$i}_7");
     $ret8 = $cloud->task("BL\\Test::test1", "hello{$i}_8");
@@ -26,9 +30,9 @@ for ($i = 0; $i < 1; $i++)
 
     $n = $cloud->wait(0.5); //500ms超时
     //表示全部OK了
-    if ($n === 8)
+    if ($n === 9)
     {
-        var_dump($ret1->data, $ret2->data, $ret3->data, $ret4->data, $ret5->data, $ret6->data, $ret7->data, $ret8->data);
+        var_dump($ret1->data, $ret2->data, $ret3->data, $ret4->data, $ret5->data, $ret6->data, $ret7->data, $ret8->data,$ret9->data);
         echo "finish\n";
         $ok++;
     }

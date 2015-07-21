@@ -23,4 +23,9 @@ class User
 	{
 		return User_model::find($id);
 	}
+
+    static function test()
+    {
+        return array(1,2,3,4,5);
+    }
 }

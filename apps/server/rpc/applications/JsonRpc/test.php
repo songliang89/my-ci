@@ -20,6 +20,9 @@ $uid = 567;
 // User对应applications/JsonRpc/Services/User.php 中的User类
 $user_client = RpcClient::instance('User');
 
+$ret_sync = $user_client->test();
+print_r($ret_sync);
+exit;
 // getInfoByUid对应User类中的getInfoByUid方法
 #$ret_sync = $user_client->getUser();
 $i = 1;
