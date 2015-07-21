@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function vote()
+        {
+            var hh =  document.createElement('img');
+            hh.setAttribute('src', 'test1.php');
+            //hh.setAttribute('width', '200');
+            //hh.setAttribute('height', '200');
+            //document.getElementById("progress").appendChild(hh);
+        }
+    </script>
+</head>
+
+<body>
+      <div>
+          <p><img src="../cache.jpg" width="200" height="200"></p>
+          <p><a href="test1.php">投票方法1</a></p>
+          <p><input type="button" value="投票方法2" onclick="vote();"></p>
+      </div>
+      <div id="progress">
+      </div>
+</body>
+</html>
