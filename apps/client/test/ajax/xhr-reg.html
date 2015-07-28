@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="reg-res"></div>
+<form action="" method="post" target="regzone" onsubmit="return ajaxreg();">
+    <p>用户名:<input type="text" name="username" id="username"></p>
+    <p>邮  箱:<input type="text" name="email" id="email"></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+<script>
+    function createXHR()
+    {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXOject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xhr;
+    }
+    var xhr = createXHR();
+    function ajaxreg()
+    {
+        // 获取表单信息.
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        // 打开连接  使用post 方式
+        xhr.open('post','./xhr-reg.php',true);
+        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;");  //用POST的时候一定要有这句
+        // 拼接请求数据.
+        var send_str = "username="+username+"&email="+email;
+        // 发送请求
+        xhr.send(send_str);
+        // 监听状态,添加回调
+        xhr.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+
+
+        return false;
+    }
+</script>
+
+</body>
+</html>

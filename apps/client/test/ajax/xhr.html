@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        /*console.log(new XMLHttpRequest());
+         console.log(new ActiveXObject('Mircosoft.XMLHTTP'));*/
+
+        /**
+         *  创建xhr 对象,兼容ie低版本.
+         *
+         * @returns {*}
+         */
+        function createXHR() {
+            var xhr = null;
+            if (window.XMLHttpRequest) {
+                xhr = new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                xhr = new ActiveXObject('Mircosoft.XMLHTTP');
+            }
+            return xhr;
+        }
+        //1.制造xhr
+        var xhr = createXHR();
+
+        function vote()
+        {
+            //2.打开连接
+            xhr.open('GET','./xhr.php',true);
+            //3.发请求
+            xhr.send(null);
+            //4.获得返回信息
+            //alert(xhr.responseText); // 改为同步便可以获取到相应信息.
+
+            //绑定状态变化的回调函数
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    //document.getElementById("progress").innerHTML = this.readyState;
+                    //var pg = document.getElementById('progress');
+                    //pg.innerHTML = pg.innerHTML + '状态变成' + this.readyState + '<br>';
+                    //alert("请求完成");
+                    //alert(this.responseText);
+                    // 状态码
+                    console.log("状态码"+this.status);
+                    console.log("状态文字"+this.statusText);
+                    console.log("头信息Content-length:"+this.getResponseHeader('Content-length'));
+                    console.log("头信息Content-Type:"+this.getResponseHeader('Content-Type'));
+                    console.log("返回的主体内容:"+this.responseText);
+                    console.log("所有头信息:"+this.getAllResponseHeaders());
+                    if (this.responseText > 0 && this.status == 200) {
+                        document.getElementById("progress").innerHTML = "投票成功,现在得票"+this.responseText;
+                    } else {
+                        document.getElementById("progress").innerHTML = "投票失败";
+                    }
+                }
+            }
+
+        }
+
+        function xhrstop()
+        {
+            //1.制造xhr
+            //var xhr = createXHR();
+            xhr.abort();
+        }
+
+    </script>
+
+</head>
+<body>
+<div>
+    <p><img src="../cache.jpg" width="200" height="200"></p>
+    <p><a href="test1.php">投票方法1</a></p>
+    <p><input type="button" value="投票方法2" onclick="vote();"></p>
+    <p><input type="button" value="xhr 忽略方法测试(Abort)" onclick="xhrstop();"></p>
+</div>
+<div id="progress">
+</div>
+</body>
+</html>
