@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="button" value="测试返回值1" onclick="test1()">
+    <input type="button" value="测试返回值2" onclick="test2()">
+<script>
+    function createXHR()
+    {
+        var xhr = null;
+        if (window.XMLHttpRequest) {
+            xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xhr;
+    }
+    var xhr = createXHR();
+
+    function test1()
+    {
+
+    }
+
+</script>
+</body>
+</html>
